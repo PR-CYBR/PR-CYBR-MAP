@@ -9,25 +9,25 @@ Welcome to the Aguadilla (PR-BQN) Sector Hub. This page is designed to streamlin
 Access the latest TAK maps for the Aguadilla sector. These maps are formatted for easy import into your TAK application to support situational awareness and operational coordination.
 
 - **Standard Operational Map**  
-  [Download TAK Map]()
+  [Download TAK Map](https://forms.gle/DS3A85vrBp2DpJjMA)
 
 - **Mission-Specific Maps**  
   For specific missions, please refer to mission packages in the following link. Mission packages are designed to offer customized layers and data for specialized operations in the Aguadilla sector.  
-  [Access Mission Packages]()
+  [Access Mission Packages](https://forms.gle/DS3A85vrBp2DpJjMA)
 
 ### 2. Sector Database and Updates
 
 Stay updated with current information and data for the Aguadilla sector. The sector database includes information on recent changes, resources, and operational insights.
 
 - **Sector Database Link**  
-  [View Database]()
+  [View Database](https://forms.gle/DS3A85vrBp2DpJjMA)
 
 ### 3. Submit a Mission Package Request
 
 If you require a custom TAK map layer or additional resources for a specific mission in Aguadilla, please use the Mission Package Request Form. This ensures that all required data and tools are prepared and delivered promptly.
 
 - **Request Form for Mission Package**  
-  [Submit Request]()
+  [Submit Request](https://forms.gle/DS3A85vrBp2DpJjMA)
 
 ---
 
