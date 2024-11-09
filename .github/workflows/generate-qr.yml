@@ -1,0 +1,42 @@
+name: Generate QR Code
+
+on:
+  push:
+    paths:
+      - 'PR-DIV/**/TAK/*.txt' # Trigger on changes to .txt files in TAK directories
+
+jobs:
+  generate-qr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install qrcode
+
+      - name: Run QR Code Generator Script
+        run: |
+          python scripts/generate_qr.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Add QR Code for updated links" || echo "No changes to commit"
+          git push origin qr-code-update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Added QR Code for TAK directories"
+          branch: qr-code-update
+          title: "Generated QR Codes for new TAK links"
+          body: "This PR includes QR codes generated for the newly added links in TAK directories."
