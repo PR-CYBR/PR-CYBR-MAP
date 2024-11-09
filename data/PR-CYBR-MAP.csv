@@ -1,82 +1,81 @@
-Municipality,Sector-Code,Latitude,Longitude
-Adjuntas,PR-ADJ,18.1616,-66.7236
-Aguada,PR-AGU,18.381,-67.1887
-Aguadilla,PR-BQN,18.4274,-67.1541
-Aguas Buenas,PR-AGB,18.2608,-66.1047
-Aibonito,PR-AIB,18.1389,-66.2661
-Añasco,PR-ANA,18.2856,-67.1397
-Arecibo,PR-ARE,18.472,-66.7161
-Arroyo,PR-ARR,17.9561,-66.0608
-Barceloneta,PR-BAR,18.4505,-66.5385
-Barranquitas,PR-BQT,18.1878,-66.306
-Bayamón,PR-BAY,18.3985,-66.1557
-Boquerón,PR-BOQ,18.0227,-67.1663
-Cabo Rojo,PR-CAB,18.0866,-67.1457
-Caguas,PR-CAG,18.2341,-66.0485
-Camuy,PR-CAM,18.4834,-66.8441
-Canóvanas,PR-CAN,18.3747,-65.9004
-Carolina,PR-CAR,18.3808,-65.9574
-Cataño,PR-CAT,18.4411,-66.1185
-Cayey,PR-CAY,18.1111,-66.1665
-Ceiba,PR-CEB,18.2653,-65.6481
-Ciales,PR-CIA,18.3367,-66.4735
-Cidra,PR-CID,18.1719,-66.1594
-Coamo,PR-CMO,18.08,-66.356
-Comerío,PR-COM,18.2247,-66.2252
-Corozal,PR-COR,18.3411,-66.3168
-Culebra,PR-CUL,18.3167,-65.3
-Dorado,PR-DOR,18.4581,-66.2677
-Fajardo,PR-FAJ,18.3258,-65.6523
-Florida,PR-FLO,18.3617,-66.5608
-Guánica,PR-GAN,17.9722,-66.9083
-Guayama,PR-GUA,17.9842,-66.1135
-Guayanilla,PR-GUR,18.0194,-66.7913
-Guaynabo,PR-GUY,18.3574,-66.111
-Gurabo,PR-GBO,18.2555,-65.9735
-Hatillo,PR-HAT,18.4847,-66.8277
-Hormigueros,PR-HOR,18.1419,-67.1283
-Humacao,PR-HUM,18.1497,-65.8274
-Isabela,PR-ISB,18.5,-67.0167
-Jayuya,PR-JAY,18.2181,-66.5913
-Juana Díaz,PR-JUA,18.0519,-66.5027
-Juncos,PR-JUN,18.2272,-65.9191
-Lajas,PR-LAJ,18.0433,-67.0713
-Lares,PR-LAS,18.2955,-66.8763
-Las Marías,PR-LAR,18.2511,-66.9927
-Las Piedras,PR-LAP,18.1797,-65.8713
-Loíza,PR-LOR,18.4333,-65.8833
-Luquillo,PR-LUI,18.3792,-65.7167
-Manatí,PR-MTI,18.4275,-66.4927
-Maricao,PR-MAR,18.18,-66.98
-Maunabo,PR-MBO,18.0069,-65.8991
-Mayagüez,PR-MAY,18.2011,-67.1396
-Moca,PR-MOC,18.3939,-67.1132
-Morovis,PR-MOR,18.3219,-66.4083
-Naguabo,PR-NAG,18.2197,-65.73
-Naranjito,PR-NAR,18.3019,-66.2441
-Orocovis,PR-OCO,18.2244,-66.3886
-Orocovis,PR-ORO,18.2244,-66.3886
-Patillas,PR-PAT,18.0069,-66.0158
-Peñuelas,PR-PEN,18.0572,-66.7222
-Ponce,PR-PON,18.0111,-66.6141
-Quebradillas,PR-QUE,18.4725,-66.9375
-Rincón,PR-RIN,18.34,-67.25
-Río Grande,PR-RIO,18.38,-65.83
-Río Piedras,PR-ROJ,18.4019,-66.0522
-Sabana Grande,PR-SAB,18.0816,-66.9622
-Salinas,PR-SAL,17.9722,-66.2972
-San Germán,PR-SAN,18.0822,-67.0458
-San Juan,PR-SJU,18.4655,-66.1057
-San Lorenzo,PR-SLO,18.1894,-65.961
-San Sebastián,PR-SEB,18.3436,-66.9936
-Santa Isabel,PR-SIS,17.9667,-66.4033
-Toa Alta,PR-TOA,18.3889,-66.2483
-Toa Baja,PR-TOB,18.4497,-66.2597
-Trujillo Alto,PR-TRU,18.3547,-66.0078
-Utuado,PR-UTU,18.2686,-66.7005
-Vega Alta,PR-VEA,18.4153,-66.3269
-Vega Baja,PR-VEB,18.4444,-66.3875
-Vieques,PR-VIE,18.1344,-65.4401
-Villalba,PR-VIL,18.1308,-66.4908
-Yabucoa,PR-YAB,18.0519,-65.8797
-Yauco,PR-YAU,18.0353,-66.8491
+Municipality,DIV-CODE,Latitude,Longitude,Description
+Adjuntas,PR-ADJ,18.1616,-66.7236,"A critical PR-CYBR hub focused on securing the mountainous regions and promoting digital literacy in rural communities."
+Aguada,PR-AGU,18.381,-67.1887,"A key coastal PR-CYBR node dedicated to safeguarding tourism hotspots and enhancing cybersecurity for local businesses."
+Aguadilla,PR-BQN,18.4274,-67.1541,"A PR-CYBR regional hub ensuring digital resilience in this vital transportation and coastal area."
+Aguas Buenas,PR-AGB,18.2608,-66.1047,"A PR-CYBR initiative point for preserving environmental sustainability and enhancing digital security for its agricultural economy."
+Aibonito,PR-AIB,18.1389,-66.2661,"A PR-CYBR site promoting cybersecurity awareness in rural areas and supporting local flower and agricultural industries."
+Añasco,PR-ANA,18.2856,-67.1397,"A PR-CYBR outpost focused on protecting coastal infrastructure and supporting local digital innovation."
+Arecibo,PR-ARE,18.472,-66.7161,"Home to a PR-CYBR research hub prioritizing critical infrastructure protection, including the iconic observatory site."
+Arroyo,PR-ARR,17.9561,-66.0608,"A PR-CYBR node focused on preserving cultural heritage through digital resilience and supporting small businesses."
+Barceloneta,PR-BAR,18.4505,-66.5385,"A PR-CYBR industrial hub supporting digital security for pineapple agriculture and pharmaceutical manufacturing."
+Barranquitas,PR-BQT,18.1878,-66.306,"A PR-CYBR initiative to promote secure digital practices for coffee production and local artisanal trades."
+Bayamón,PR-BAY,18.3985,-66.1557,"A metropolitan PR-CYBR stronghold ensuring cybersecurity in commerce, education, and public services."
+Boquerón,PR-BOQ,18.0227,-67.1663,"A PR-CYBR coastal outpost protecting tourism infrastructure and supporting local businesses with cybersecurity solutions."
+Cabo Rojo,PR-CAB,18.0866,-67.1457,"A PR-CYBR site focusing on safeguarding eco-tourism and critical digital infrastructure in this beach destination."
+Caguas,PR-CAG,18.2341,-66.0485,"A PR-CYBR economic hub fostering secure digital ecosystems in commerce and education."
+Camuy,PR-CAM,18.4834,-66.8441,"A PR-CYBR node ensuring the protection of natural resources and supporting sustainable tourism with digital solutions."
+Canóvanas,PR-CAN,18.3747,-65.9004,"A PR-CYBR point emphasizing digital preparedness for disaster response and tourism resilience near El Yunque."
+Carolina,PR-CAR,18.3808,-65.9574,"A metropolitan PR-CYBR hub focused on securing international travel infrastructure and local businesses."
+Cataño,PR-CAT,18.4411,-66.1185,"A PR-CYBR cultural site supporting the digitization and protection of historic industries like rum production."
+Cayey,PR-CAY,18.1111,-66.1665,"A PR-CYBR node supporting digital education and security for agricultural and culinary enterprises."
+Ceiba,PR-CEB,18.2653,-65.6481,"A PR-CYBR eco-tourism hub promoting secure digital solutions for tourism and former naval base redevelopment."
+Ciales,PR-CIA,18.3367,-66.4735,"A PR-CYBR rural center focused on protecting agricultural enterprises and promoting cybersecurity in small towns."
+Cidra,PR-CID,18.1719,-66.1594,"A PR-CYBR site dedicated to fostering secure digital environments for small businesses and the agricultural sector."
+Coamo,PR-CMO,18.08,-66.356,"A PR-CYBR historical hub ensuring cybersecurity for cultural tourism and digital infrastructure."
+Comerío,PR-COM,18.2247,-66.2252,"A PR-CYBR node promoting digital literacy and resilience in small towns with rich natural beauty."
+Corozal,PR-COR,18.3411,-66.3168,"A PR-CYBR outpost safeguarding agricultural innovation and local entrepreneurial ventures."
+Culebra,PR-CUL,18.3167,-65.3,"A PR-CYBR island initiative ensuring cybersecurity for eco-tourism and marine preservation efforts."
+Dorado,PR-DOR,18.4581,-66.2677,"A PR-CYBR luxury tourism hub focused on securing digital services for resorts and local businesses."
+Fajardo,PR-FAJ,18.3258,-65.6523,"A PR-CYBR maritime hub supporting secure digital infrastructure for boating and eco-tourism."
+Florida,PR-FLO,18.3617,-66.5608,"A PR-CYBR rural node promoting digital literacy and agricultural innovation security."
+Guánica,PR-GAN,17.9722,-66.9083,"A PR-CYBR eco-site protecting biodiversity and promoting secure digital solutions for tourism."
+Guayama,PR-GUA,17.9842,-66.1135,"A PR-CYBR industrial hub focused on securing historical and industrial operations."
+Guayanilla,PR-GUR,18.0194,-66.7913,"A PR-CYBR site supporting digital security for coastal communities and small businesses."
+Guaynabo,PR-GUY,18.3574,-66.111,"A PR-CYBR metropolitan hub safeguarding urban development and public service infrastructures."
+Gurabo,PR-GBO,18.2555,-65.9735,"A PR-CYBR initiative promoting digital innovation for agricultural and educational growth."
+Hatillo,PR-HAT,18.4847,-66.8277,"A PR-CYBR site dedicated to protecting dairy agriculture and cultural heritage digitally."
+Hormigueros,PR-HOR,18.1419,-67.1283,"A PR-CYBR religious tourism hub supporting secure digital solutions for cultural sites."
+Humacao,PR-HUM,18.1497,-65.8274,"A PR-CYBR eco-tourism hub ensuring cybersecurity for nature reserves and luxury developments."
+Isabela,PR-ISB,18.5,-67.0167,"A PR-CYBR coastal hub promoting secure digital solutions for tourism and natural resource management."
+Jayuya,PR-JAY,18.2181,-66.5913,"A PR-CYBR cultural site protecting indigenous heritage and promoting digital security for small towns."
+Juana Díaz,PR-JUA,18.0519,-66.5027,"A PR-CYBR initiative supporting cultural preservation and cybersecurity for local industries."
+Juncos,PR-JUN,18.2272,-65.9191,"A PR-CYBR rural node fostering secure digital innovation for agriculture and education."
+Lajas,PR-LAJ,18.0433,-67.0713,"A PR-CYBR eco-tourism hub focusing on protecting the Bioluminescent Bay and promoting digital education in tourism."
+Lares,PR-LAS,18.2955,-66.8763,"A PR-CYBR historical site fostering digital preservation of cultural heritage and coffee production industries."
+Las Marías,PR-LAR,18.2511,-66.9927,"A PR-CYBR agricultural node ensuring secure practices for rural innovation and economic development."
+Las Piedras,PR-LAP,18.1797,-65.8713,"A PR-CYBR artisan hub promoting secure digital solutions for local crafts and small businesses."
+Loíza,PR-LOR,18.4333,-65.8833,"A PR-CYBR cultural hub protecting African heritage through secure digital platforms and educational outreach."
+Luquillo,PR-LUI,18.3792,-65.7167,"A PR-CYBR eco-tourism site safeguarding digital infrastructure for beaches and national parks."
+Manatí,PR-MTI,18.4275,-66.4927,"A PR-CYBR cultural and industrial hub fostering digital innovation in healthcare and commerce."
+Maricao,PR-MAR,18.18,-66.98,"A PR-CYBR rural node supporting coffee production and promoting digital literacy in agricultural communities."
+Maunabo,PR-MBO,18.0069,-65.8991,"A PR-CYBR coastal site ensuring secure digital ecosystems for tourism and local businesses."
+Mayagüez,PR-MAY,18.2011,-67.1396,"A PR-CYBR educational and economic hub protecting universities and promoting digital innovation."
+Moca,PR-MOC,18.3939,-67.1132,"A PR-CYBR artisan center safeguarding the digital presence of local lace-making traditions and businesses."
+Morovis,PR-MOR,18.3219,-66.4083,"A PR-CYBR rural node fostering digital connectivity for isolated communities and local industries."
+Naguabo,PR-NAG,18.2197,-65.73,"A PR-CYBR coastal hub supporting seafood industries and protecting digital tourism infrastructure."
+Naranjito,PR-NAR,18.3019,-66.2441,"A PR-CYBR agricultural hub promoting secure digital practices in orange production and rural commerce."
+Orocovis,PR-ORO,18.2244,-66.3886,"A PR-CYBR adventure tourism hub ensuring digital security for eco-tourism and local businesses."
+Patillas,PR-PAT,18.0069,-66.0158,"A PR-CYBR ecological site promoting secure digital infrastructure for green tourism and coastal preservation."
+Peñuelas,PR-PEN,18.0572,-66.7222,"A PR-CYBR cultural hub protecting local traditions and fostering secure digital practices for businesses."
+Ponce,PR-PON,18.0111,-66.6141,"A PR-CYBR economic and cultural center ensuring cybersecurity for historical sites and commercial hubs."
+Quebradillas,PR-QUE,18.4725,-66.9375,"A PR-CYBR coastal site fostering secure digital solutions for scenic tourism and local economic growth."
+Rincón,PR-RIN,18.34,-67.25,"A PR-CYBR surfing destination promoting secure digital infrastructure for eco-tourism and coastal businesses."
+Río Grande,PR-RIO,18.38,-65.83,"A PR-CYBR eco-tourism hub supporting secure digital practices for national parks and hospitality businesses."
+Río Piedras,PR-ROJ,18.4019,-66.0522,"A PR-CYBR educational hub safeguarding digital infrastructure for academic institutions and urban development."
+Sabana Grande,PR-SAB,18.0816,-66.9622,"A PR-CYBR artisan hub promoting digital resilience in traditional craft and small business communities."
+Salinas,PR-SAL,17.9722,-66.2972,"A PR-CYBR ecological and industrial hub protecting digital resources for seafood industries and natural reserves."
+San Germán,PR-SAN,18.0822,-67.0458,"A PR-CYBR historical site ensuring cybersecurity for colonial architecture and cultural preservation."
+San Juan,PR-SJU,18.4655,-66.1057,"A PR-CYBR metropolitan command center leading digital resilience efforts across government, business, and education sectors."
+San Lorenzo,PR-SLO,18.1894,-65.961,"A PR-CYBR node promoting secure digital solutions for agricultural communities and local enterprises."
+San Sebastián,PR-SEB,18.3436,-66.9936,"A PR-CYBR eco-tourism hub focusing on protecting natural attractions and supporting local businesses."
+Santa Isabel,PR-SIS,17.9667,-66.4033,"A PR-CYBR agricultural hub fostering secure digital practices in potato farming and rural industries."
+Toa Alta,PR-TOA,18.3889,-66.2483,"A PR-CYBR historical site promoting digital preservation and fostering secure local business practices."
+Toa Baja,PR-TOB,18.4497,-66.2597,"A PR-CYBR suburban hub supporting digital resilience for urban and coastal areas."
+Trujillo Alto,PR-TRU,18.3547,-66.0078,"A PR-CYBR residential and ecological site fostering secure digital infrastructure for suburban communities."
+Utuado,PR-UTU,18.2686,-66.7005,"A PR-CYBR eco-tourism hub ensuring digital protection for cultural sites and natural attractions."
+Vega Alta,PR-VEA,18.4153,-66.3269,"A PR-CYBR coastal hub supporting secure digital solutions for national parks and local businesses."
+Vega Baja,PR-VEB,18.4444,-66.3875,"A PR-CYBR coastal site promoting secure digital practices for tourism and historical preservation."
+Vieques,PR-VIE,18.1344,-65.4401,"A PR-CYBR island initiative ensuring secure digital ecosystems for eco-tourism and marine conservation."
+Villalba,PR-VIL,18.1308,-66.4908,"A PR-CYBR rural node fostering secure digital innovation for hydroelectric and agricultural projects."
+Yabucoa,PR-YAB,18.0519,-65.8797,"A PR-CYBR coastal hub protecting the digital infrastructure of agricultural and small business enterprises."
+Yauco,PR-YAU,18.0353,-66.8491,"A PR-CYBR cultural and agricultural site promoting digital resilience for coffee production and urban art initiatives."
