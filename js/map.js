@@ -14,14 +14,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let cityDataGlobal = []; // To store marker data globally
 
-    // Load markers from the JSON file
-    fetch('data/markers.json')
-        .then(response => response.json())
-        .then(data => {
-            cityDataGlobal = data.markers; // Store data globally
-            data.markers.forEach(markerData => {
-                // Create custom popup content
-                var popupContent = `
+    // Load marker data from the CSV file
+    fetch('data/PR-CYBR-MAP.csv')
+        .then(response => response.text())
+        .then(csvText => {
+            const rows = csvText.split('\n').slice(1); // Skip the header
+            rows.forEach(row => {
+                const [Municipality, Latitude, Longitude, Description] = row.split(',');
+
+                // Create a marker object
+                const markerData = {
+                    name: Municipality.trim(),
+                    lat: parseFloat(Latitude),
+                    lng: parseFloat(Longitude),
+                    description: Description.trim(),
+                    moreInfo: `Explore ${Municipality.trim()} for its unique cybersecurity and community features.`
+                };
+                cityDataGlobal.push(markerData);
+
+                // Create a custom popup content
+                const popupContent = `
                     <div>
                         <h3>${markerData.name}</h3>
                         <p>${markerData.description}</p>
@@ -31,13 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 `;
 
-                // Create a marker with the custom popup
+                // Add the marker to the map
                 L.marker([markerData.lat, markerData.lng])
                     .bindPopup(popupContent)
                     .addTo(map);
             });
         })
-        .catch(error => console.error("Error loading markers:", error));
+        .catch(error => console.error("Error loading CSV data:", error));
 
     // Event listener for popups to handle "See More" clicks
     map.on('popupopen', function (e) {
