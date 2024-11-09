@@ -43,7 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     !entry.Municipality ||
                     isNaN(parseFloat(entry.Latitude)) ||
                     isNaN(parseFloat(entry.Longitude)) ||
-                    !entry.Description
+                    !entry.Description ||
+                    !entry.PrimaryObjectives ||
+                    !entry.DiscordLink ||
+                    typeof entry.Barrios === 'undefined' ||
+                    typeof entry.Sections === 'undefined'
                 ) {
                     console.error(`Skipping invalid entry at index ${index}:`, entry);
                     return;
@@ -52,17 +56,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Create a marker object
                 const markerData = {
                     name: entry.Municipality.trim(),
+                    divCode: entry["DIV-CODE"],
                     lat: parseFloat(entry.Latitude),
                     lng: parseFloat(entry.Longitude),
                     description: entry.Description.trim(),
-                    moreInfo: `Explore ${entry.Municipality.trim()} for its unique cybersecurity features.`
+                    primaryObjectives: entry.PrimaryObjectives.trim(),
+                    barrios: entry.Barrios,
+                    sections: entry.Sections,
+                    discordLink: entry.DiscordLink.trim(),
+                    // Construct moreInfo using the new fields
+                    moreInfo: `
+                        <p><strong>Description:</strong> ${entry.Description.trim()}</p>
+                        <p><strong>Primary Objectives:</strong> ${entry.PrimaryObjectives.trim()}</p>
+                        <p><strong>Barrios:</strong> ${entry.Barrios}</p>
+                        <p><strong>Sections:</strong> ${entry.Sections}</p>
+                        <p><strong>Discord:</strong> <a href="${entry.DiscordLink.trim()}" target="_blank">Join Discord</a></p>
+                    `
                 };
                 cityDataGlobal.push(markerData);
 
                 // Create a custom popup content
                 const popupContent = `
                     <div>
-                        <h3>${markerData.name}</h3>
+                        <h3>${markerData.name} (${markerData.divCode})</h3>
                         <p>${markerData.description}</p>
                         <div style="text-align: right;">
                             <a href="#" class="see-more-link" data-city="${markerData.name}">See More</a>
@@ -101,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
             var sidebar = document.getElementById('sidebar');
             sidebar.innerHTML = `
                 <div class="sidebar-content">
-                    <h2>${cityData.name}</h2>
-                    <p>${cityData.moreInfo}</p>
+                    <h2>${cityData.name} (${cityData.divCode})</h2>
+                    ${cityData.moreInfo}
                     <button id="close-sidebar">Close</button>
                 </div>
             `;
