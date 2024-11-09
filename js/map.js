@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     !entry.Description ||
                     !entry.PrimaryObjectives ||
                     !entry.DiscordLink ||
+                    !entry.DivisionDatabaseLink ||
                     typeof entry.Barrios === 'undefined' ||
                     typeof entry.Sections === 'undefined'
                 ) {
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     barrios: entry.Barrios,
                     sections: entry.Sections,
                     discordLink: entry.DiscordLink.trim(),
+                    divisionDatabaseLink: entry.DivisionDatabaseLink.trim(),
                     // Construct moreInfo using the new fields
                     moreInfo: `
                         <p><strong>Description:</strong> ${entry.Description.trim()}</p>
@@ -71,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p><strong>Barrios:</strong> ${entry.Barrios}</p>
                         <p><strong>Sections:</strong> ${entry.Sections}</p>
                         <p><strong>Discord:</strong> <a href="${entry.DiscordLink.trim()}" target="_blank">Join Discord</a></p>
+                        <p><strong>Division Database:</strong> <a href="${entry.DivisionDatabaseLink.trim()}" target="_blank">View Database</a></p>
                     `
                 };
                 cityDataGlobal.push(markerData);
