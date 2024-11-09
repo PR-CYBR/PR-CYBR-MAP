@@ -33,27 +33,29 @@ document.addEventListener("DOMContentLoaded", function () {
         shadowAnchor: [12, 41]
     });
 
-    // Load marker data from the CSV file
-    fetch('data/PR-CYBR-MAP.csv')
-        .then(response => response.text())
-        .then(csvText => {
-            const rows = csvText.trim().split('\n').slice(1); // Skip the header row
-            rows.forEach((row, index) => {
-                const [Municipality, Latitude, Longitude, Description] = row.split(',').map(item => item.trim());
-
-                // Check for invalid or missing values
-                if (!Municipality || isNaN(parseFloat(Latitude)) || isNaN(parseFloat(Longitude)) || !Description) {
-                    console.error(`Skipping invalid row at index ${index + 1}: ${row}`);
+    // Load marker data from the JSON file
+    fetch('data/PR-CYBR-MAP.json') // Adjust path if needed
+        .then(response => response.json())
+        .then(data => {
+            data.forEach((entry, index) => {
+                // Validate JSON fields
+                if (
+                    !entry.Municipality ||
+                    isNaN(parseFloat(entry.Latitude)) ||
+                    isNaN(parseFloat(entry.Longitude)) ||
+                    !entry.Description
+                ) {
+                    console.error(`Skipping invalid entry at index ${index}:`, entry);
                     return;
                 }
 
                 // Create a marker object
                 const markerData = {
-                    name: Municipality,
-                    lat: parseFloat(Latitude),
-                    lng: parseFloat(Longitude),
-                    description: Description,
-                    moreInfo: `Explore ${Municipality} for its unique cybersecurity and community features.`
+                    name: entry.Municipality.trim(),
+                    lat: parseFloat(entry.Latitude),
+                    lng: parseFloat(entry.Longitude),
+                    description: entry.Description.trim(),
+                    moreInfo: `Explore ${entry.Municipality.trim()} for its unique cybersecurity features.`
                 };
                 cityDataGlobal.push(markerData);
 
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     .addTo(map);
             });
         })
-        .catch(error => console.error("Error loading CSV data:", error));
+        .catch(error => console.error("Error loading JSON data:", error));
 
     // Event listener for popups to handle "See More" clicks
     map.on('popupopen', function (e) {
