@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Load marker data from the JSON file
-    fetch('data/PR-CYBR-MAP.json') // Adjust path if needed
+    fetch('data/PR-CYBR-MAP.json')
         .then(response => response.json())
         .then(data => {
             data.forEach((entry, index) => {
@@ -66,15 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     sections: entry.Sections,
                     discordLink: entry.DiscordLink.trim(),
                     divisionDatabaseLink: entry.DivisionDatabaseLink.trim(),
-                    // Construct moreInfo using the new fields
-                    moreInfo: `
-                        <p><strong>Description:</strong> ${entry.Description.trim()}</p>
-                        <p><strong>Primary Objectives:</strong> ${entry.PrimaryObjectives.trim()}</p>
-                        <p><strong>Barrios:</strong> ${entry.Barrios}</p>
-                        <p><strong>Sections:</strong> ${entry.Sections}</p>
-                        <p><strong>Discord:</strong> <a href="${entry.DiscordLink.trim()}" target="_blank">Join Discord</a></p>
-                        <p><strong>Division Database:</strong> <a href="${entry.DivisionDatabaseLink.trim()}" target="_blank">View Database</a></p>
-                    `
                 };
                 cityDataGlobal.push(markerData);
 
@@ -121,7 +112,12 @@ document.addEventListener("DOMContentLoaded", function () {
             sidebar.innerHTML = `
                 <div class="sidebar-content">
                     <h2>${cityData.name} (${cityData.divCode})</h2>
-                    ${cityData.moreInfo}
+                    <p><strong>Description:</strong> ${cityData.description}</p>
+                    <p><strong>Primary Objectives:</strong> ${cityData.primaryObjectives}</p>
+                    <p><strong>Barrios:</strong> ${cityData.barrios}</p>
+                    <p><strong>Sections:</strong> ${cityData.sections}</p>
+                    <p><strong>Discord:</strong> <a href="${cityData.discordLink}" target="_blank">Join Discord</a></p>
+                    <p><strong>Division Database:</strong> <a href="${cityData.divisionDatabaseLink}" target="_blank">View Database</a></p>
                     <button id="close-sidebar">Close</button>
                 </div>
             `;
