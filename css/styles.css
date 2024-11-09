@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    transition: width 0.3s ease;
+}
+
+/* Sidebar styles */
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Hidden by default */
+    width: 400px;
+    height: 100vh;
+    background-color: #333; /* Changed to grey */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    padding: 20px;
+    z-index: 1000;
+}
+
+#sidebar.active {
+    right: 0;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    color: #fff; /* Changed text color to white */
+}
+
+.sidebar-content h2 {
+    margin-top: 0;
+    color: #fff; /* Ensure headings are white */
+}
+
+.sidebar-content p {
+    flex-grow: 1;
+    color: #fff; /* Ensure paragraphs are white */
+}
+
+#close-sidebar {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #00FFFF; /* Cyan color */
+    color: #333; /* Text color for contrast */
+    border: none;
+    cursor: pointer;
+}
+
+#close-sidebar:hover {
+    background-color: #00CED1; /* Darker cyan on hover */
+}
+
+.see-more-link {
+    color: #0078A8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.see-more-link:hover {
+    text-decoration: underline;
+}
+
+/* Adjust map width when sidebar is active */
+#sidebar.active ~ #map {
+    width: calc(100% - 400px);
+}
