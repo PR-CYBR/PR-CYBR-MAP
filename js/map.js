@@ -22,12 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let cityDataGlobal = []; // To store marker data globally
 
-    // Define custom icon settings
-    const customIcon = (iconUrl) => L.icon({
-        iconUrl: iconUrl,
-        iconSize: [25, 41], // Default Leaflet icon size
-        iconAnchor: [12, 41], // Anchor point of the icon
-        popupAnchor: [1, -34], // Position of the popup relative to the icon
+    // Define a default custom icon
+    const defaultIcon = L.icon({
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', // Default Leaflet icon
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
         shadowSize: [41, 41],
         shadowAnchor: [12, 41]
@@ -38,11 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text())
         .then(csvText => {
             const rows = csvText.trim().split('\n').slice(1); // Skip the header row
-            rows.forEach(row => {
-                const [Municipality, Latitude, Longitude, Description, IconUrl] = row.split(',').map(item => item.trim());
+            rows.forEach((row, index) => {
+                const [Municipality, Latitude, Longitude, Description] = row.split(',').map(item => item.trim());
 
-                // Skip if any required field is missing
-                if (!Municipality || !Latitude || !Longitude || !Description || !IconUrl) return;
+                // Check for invalid or missing values
+                if (!Municipality || isNaN(parseFloat(Latitude)) || isNaN(parseFloat(Longitude)) || !Description) {
+                    console.error(`Skipping invalid row at index ${index + 1}: ${row}`);
+                    return;
+                }
 
                 // Create a marker object
                 const markerData = {
@@ -50,8 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     lat: parseFloat(Latitude),
                     lng: parseFloat(Longitude),
                     description: Description,
-                    moreInfo: `Explore ${Municipality} for its unique cybersecurity and community features.`,
-                    iconUrl: IconUrl
+                    moreInfo: `Explore ${Municipality} for its unique cybersecurity and community features.`
                 };
                 cityDataGlobal.push(markerData);
 
@@ -67,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
 
                 // Add the marker to the map
-                L.marker([markerData.lat, markerData.lng], { icon: customIcon(markerData.iconUrl) })
+                L.marker([markerData.lat, markerData.lng], { icon: defaultIcon })
                     .bindPopup(popupContent)
                     .addTo(map);
             });
