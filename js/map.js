@@ -2,15 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize the map
     var map = L.map('map').setView([18.2208, -66.5901], 8); // Center on Puerto Rico
 
-    // Access tokens
-    const JAWG_ACCESS_TOKEN = 'JAWG_ACCESS_TOKEN_PLACEHOLDER';
+    // Access tokens loaded from config.json
+    let JAWG_ACCESS_TOKEN;
 
-    // Add the Jawg Matrix tileset
-    L.tileLayer(`https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=${JAWG_ACCESS_TOKEN}`, {
-        attribution: '<a href="https://jawg.io" target="_blank">© Jawg</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
-        minZoom: 0,
-        maxZoom: 22
-    }).addTo(map);
+    // Fetch config.json to get tokens
+    fetch('data/config.json')
+        .then(response => response.json())
+        .then(config => {
+            JAWG_ACCESS_TOKEN = config.JAWG_ACCESS_TOKEN;
+
+            // Add the Jawg Matrix tileset
+            L.tileLayer(`https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=${JAWG_ACCESS_TOKEN}`, {
+                attribution: '<a href="https://jawg.io" target="_blank">© Jawg</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
+                minZoom: 0,
+                maxZoom: 22
+            }).addTo(map);
+        })
+        .catch(error => console.error("Error loading config.json:", error));
 
     let cityDataGlobal = []; // To store marker data globally
 
@@ -18,17 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('data/PR-CYBR-MAP.csv')
         .then(response => response.text())
         .then(csvText => {
-            const rows = csvText.split('\n').slice(1); // Skip the header
+            const rows = csvText.trim().split('\n').slice(1); // Skip the header row
             rows.forEach(row => {
-                const [Municipality, Latitude, Longitude, Description] = row.split(',');
+                const [Municipality, Latitude, Longitude, Description] = row.split(',').map(item => item.trim());
+
+                // Skip if any required field is missing
+                if (!Municipality || !Latitude || !Longitude || !Description) return;
 
                 // Create a marker object
                 const markerData = {
-                    name: Municipality.trim(),
+                    name: Municipality,
                     lat: parseFloat(Latitude),
                     lng: parseFloat(Longitude),
-                    description: Description.trim(),
-                    moreInfo: `Explore ${Municipality.trim()} for its unique cybersecurity and community features.`
+                    description: Description,
+                    moreInfo: `Explore ${Municipality} for its unique cybersecurity and community features.`
                 };
                 cityDataGlobal.push(markerData);
 
