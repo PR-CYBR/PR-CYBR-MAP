@@ -1,0 +1,562 @@
+[
+  {
+    "Municipality": "Adjuntas",
+    "DIV-CODE": "PR-ADJ",
+    "Latitude": 18.1616,
+    "Longitude": -66.7236,
+    "Description": "A critical PR-CYBR hub focused on securing the mountainous regions and promoting digital literacy in rural communities."
+  },
+  {
+    "Municipality": "Aguada",
+    "DIV-CODE": "PR-AGU",
+    "Latitude": 18.381,
+    "Longitude": -67.1887,
+    "Description": "A key coastal PR-CYBR node dedicated to safeguarding tourism hotspots and enhancing cybersecurity for local businesses."
+  },
+  {
+    "Municipality": "Aguadilla",
+    "DIV-CODE": "PR-BQN",
+    "Latitude": 18.4274,
+    "Longitude": -67.1541,
+    "Description": "A PR-CYBR regional hub ensuring digital resilience in this vital transportation and coastal area."
+  },
+  {
+    "Municipality": "Aguas Buenas",
+    "DIV-CODE": "PR-AGB",
+    "Latitude": 18.2608,
+    "Longitude": -66.1047,
+    "Description": "A PR-CYBR initiative point for preserving environmental sustainability and enhancing digital security for its agricultural economy."
+  },
+  {
+    "Municipality": "Aibonito",
+    "DIV-CODE": "PR-AIB",
+    "Latitude": 18.1389,
+    "Longitude": -66.2661,
+    "Description": "A PR-CYBR site promoting cybersecurity awareness in rural areas and supporting local flower and agricultural industries."
+  },
+  {
+    "Municipality": "Añasco",
+    "DIV-CODE": "PR-ANA",
+    "Latitude": 18.2856,
+    "Longitude": -67.1397,
+    "Description": "A PR-CYBR outpost focused on protecting coastal infrastructure and supporting local digital innovation."
+  },
+  {
+    "Municipality": "Arecibo",
+    "DIV-CODE": "PR-ARE",
+    "Latitude": 18.472,
+    "Longitude": -66.7161,
+    "Description": "Home to a PR-CYBR research hub prioritizing critical infrastructure protection, including the iconic observatory site."
+  },
+  {
+    "Municipality": "Arroyo",
+    "DIV-CODE": "PR-ARR",
+    "Latitude": 17.9561,
+    "Longitude": -66.0608,
+    "Description": "A PR-CYBR node focused on preserving cultural heritage through digital resilience and supporting small businesses."
+  },
+  {
+    "Municipality": "Barceloneta",
+    "DIV-CODE": "PR-BAR",
+    "Latitude": 18.4505,
+    "Longitude": -66.5385,
+    "Description": "A PR-CYBR industrial hub supporting digital security for pineapple agriculture and pharmaceutical manufacturing."
+  },
+  {
+    "Municipality": "Barranquitas",
+    "DIV-CODE": "PR-BQT",
+    "Latitude": 18.1878,
+    "Longitude": -66.306,
+    "Description": "A PR-CYBR initiative to promote secure digital practices for coffee production and local artisanal trades."
+  },
+  {
+    "Municipality": "Bayamón",
+    "DIV-CODE": "PR-BAY",
+    "Latitude": 18.3985,
+    "Longitude": -66.1557,
+    "Description": "A metropolitan PR-CYBR stronghold ensuring cybersecurity in commerce, education, and public services."
+  },
+  {
+    "Municipality": "Boquerón",
+    "DIV-CODE": "PR-BOQ",
+    "Latitude": 18.0227,
+    "Longitude": -67.1663,
+    "Description": "A PR-CYBR coastal outpost protecting tourism infrastructure and supporting local businesses with cybersecurity solutions."
+  },
+  {
+    "Municipality": "Cabo Rojo",
+    "DIV-CODE": "PR-CAB",
+    "Latitude": 18.0866,
+    "Longitude": -67.1457,
+    "Description": "A PR-CYBR site focusing on safeguarding eco-tourism and critical digital infrastructure in this beach destination."
+  },
+  {
+    "Municipality": "Caguas",
+    "DIV-CODE": "PR-CAG",
+    "Latitude": 18.2341,
+    "Longitude": -66.0485,
+    "Description": "A PR-CYBR economic hub fostering secure digital ecosystems in commerce and education."
+  },
+  {
+    "Municipality": "Camuy",
+    "DIV-CODE": "PR-CAM",
+    "Latitude": 18.4834,
+    "Longitude": -66.8441,
+    "Description": "A PR-CYBR node ensuring the protection of natural resources and supporting sustainable tourism with digital solutions."
+  },
+  {
+    "Municipality": "Canóvanas",
+    "DIV-CODE": "PR-CAN",
+    "Latitude": 18.3747,
+    "Longitude": -65.9004,
+    "Description": "A PR-CYBR point emphasizing digital preparedness for disaster response and tourism resilience near El Yunque."
+  },
+  {
+    "Municipality": "Carolina",
+    "DIV-CODE": "PR-CAR",
+    "Latitude": 18.3808,
+    "Longitude": -65.9574,
+    "Description": "A metropolitan PR-CYBR hub focused on securing international travel infrastructure and local businesses."
+  },
+  {
+    "Municipality": "Cataño",
+    "DIV-CODE": "PR-CAT",
+    "Latitude": 18.4411,
+    "Longitude": -66.1185,
+    "Description": "A PR-CYBR cultural site supporting the digitization and protection of historic industries like rum production."
+  },
+  {
+    "Municipality": "Cayey",
+    "DIV-CODE": "PR-CAY",
+    "Latitude": 18.1111,
+    "Longitude": -66.1665,
+    "Description": "A PR-CYBR node supporting digital education and security for agricultural and culinary enterprises."
+  },
+  {
+    "Municipality": "Ceiba",
+    "DIV-CODE": "PR-CEB",
+    "Latitude": 18.2653,
+    "Longitude": -65.6481,
+    "Description": "A PR-CYBR eco-tourism hub promoting secure digital solutions for tourism and former naval base redevelopment."
+  },
+  {
+    "Municipality": "Ciales",
+    "DIV-CODE": "PR-CIA",
+    "Latitude": 18.3367,
+    "Longitude": -66.4735,
+    "Description": "A PR-CYBR rural center focused on protecting agricultural enterprises and promoting cybersecurity in small towns."
+  },
+  {
+    "Municipality": "Cidra",
+    "DIV-CODE": "PR-CID",
+    "Latitude": 18.1719,
+    "Longitude": -66.1594,
+    "Description": "A PR-CYBR site dedicated to fostering secure digital environments for small businesses and the agricultural sector."
+  },
+  {
+    "Municipality": "Coamo",
+    "DIV-CODE": "PR-CMO",
+    "Latitude": 18.08,
+    "Longitude": -66.356,
+    "Description": "A PR-CYBR historical hub ensuring cybersecurity for cultural tourism and digital infrastructure."
+  },
+  {
+    "Municipality": "Comerío",
+    "DIV-CODE": "PR-COM",
+    "Latitude": 18.2247,
+    "Longitude": -66.2252,
+    "Description": "A PR-CYBR node promoting digital literacy and resilience in small towns with rich natural beauty."
+  },
+  {
+    "Municipality": "Corozal",
+    "DIV-CODE": "PR-COR",
+    "Latitude": 18.3411,
+    "Longitude": -66.3168,
+    "Description": "A PR-CYBR outpost safeguarding agricultural innovation and local entrepreneurial ventures."
+  },
+  {
+    "Municipality": "Culebra",
+    "DIV-CODE": "PR-CUL",
+    "Latitude": 18.3167,
+    "Longitude": -65.3,
+    "Description": "A PR-CYBR island initiative ensuring cybersecurity for eco-tourism and marine preservation efforts."
+  },
+  {
+    "Municipality": "Dorado",
+    "DIV-CODE": "PR-DOR",
+    "Latitude": 18.4581,
+    "Longitude": -66.2677,
+    "Description": "A PR-CYBR luxury tourism hub focused on securing digital services for resorts and local businesses."
+  },
+  {
+    "Municipality": "Fajardo",
+    "DIV-CODE": "PR-FAJ",
+    "Latitude": 18.3258,
+    "Longitude": -65.6523,
+    "Description": "A PR-CYBR maritime hub supporting secure digital infrastructure for boating and eco-tourism."
+  },
+  {
+    "Municipality": "Florida",
+    "DIV-CODE": "PR-FLO",
+    "Latitude": 18.3617,
+    "Longitude": -66.5608,
+    "Description": "A PR-CYBR rural node promoting digital literacy and agricultural innovation security."
+  },
+  {
+    "Municipality": "Guánica",
+    "DIV-CODE": "PR-GAN",
+    "Latitude": 17.9722,
+    "Longitude": -66.9083,
+    "Description": "A PR-CYBR eco-site protecting biodiversity and promoting secure digital solutions for tourism."
+  },
+  {
+    "Municipality": "Guayama",
+    "DIV-CODE": "PR-GUA",
+    "Latitude": 17.9842,
+    "Longitude": -66.1135,
+    "Description": "A PR-CYBR industrial hub focused on securing historical and industrial operations."
+  },
+  {
+    "Municipality": "Guayanilla",
+    "DIV-CODE": "PR-GUR",
+    "Latitude": 18.0194,
+    "Longitude": -66.7913,
+    "Description": "A PR-CYBR site supporting digital security for coastal communities and small businesses."
+  },
+  {
+    "Municipality": "Guaynabo",
+    "DIV-CODE": "PR-GUY",
+    "Latitude": 18.3574,
+    "Longitude": -66.111,
+    "Description": "A PR-CYBR metropolitan hub safeguarding urban development and public service infrastructures."
+  },
+  {
+    "Municipality": "Gurabo",
+    "DIV-CODE": "PR-GBO",
+    "Latitude": 18.2555,
+    "Longitude": -65.9735,
+    "Description": "A PR-CYBR initiative promoting digital innovation for agricultural and educational growth."
+  },
+  {
+    "Municipality": "Hatillo",
+    "DIV-CODE": "PR-HAT",
+    "Latitude": 18.4847,
+    "Longitude": -66.8277,
+    "Description": "A PR-CYBR site dedicated to protecting dairy agriculture and cultural heritage digitally."
+  },
+  {
+    "Municipality": "Hormigueros",
+    "DIV-CODE": "PR-HOR",
+    "Latitude": 18.1419,
+    "Longitude": -67.1283,
+    "Description": "A PR-CYBR religious tourism hub supporting secure digital solutions for cultural sites."
+  },
+  {
+    "Municipality": "Humacao",
+    "DIV-CODE": "PR-HUM",
+    "Latitude": 18.1497,
+    "Longitude": -65.8274,
+    "Description": "A PR-CYBR eco-tourism hub ensuring cybersecurity for nature reserves and luxury developments."
+  },
+  {
+    "Municipality": "Isabela",
+    "DIV-CODE": "PR-ISB",
+    "Latitude": 18.5,
+    "Longitude": -67.0167,
+    "Description": "A PR-CYBR coastal hub promoting secure digital solutions for tourism and natural resource management."
+  },
+  {
+    "Municipality": "Jayuya",
+    "DIV-CODE": "PR-JAY",
+    "Latitude": 18.2181,
+    "Longitude": -66.5913,
+    "Description": "A PR-CYBR cultural site protecting indigenous heritage and promoting digital security for small towns."
+  },
+  {
+    "Municipality": "Juana Díaz",
+    "DIV-CODE": "PR-JUA",
+    "Latitude": 18.0519,
+    "Longitude": -66.5027,
+    "Description": "A PR-CYBR initiative supporting cultural preservation and cybersecurity for local industries."
+  },
+  {
+    "Municipality": "Juncos",
+    "DIV-CODE": "PR-JUN",
+    "Latitude": 18.2272,
+    "Longitude": -65.9191,
+    "Description": "A PR-CYBR rural node fostering secure digital innovation for agriculture and education."
+  },
+  {
+    "Municipality": "Lajas",
+    "DIV-CODE": "PR-LAJ",
+    "Latitude": 18.0433,
+    "Longitude": -67.0713,
+    "Description": "A PR-CYBR eco-tourism hub focusing on protecting the Bioluminescent Bay and promoting digital education in tourism."
+  },
+  {
+    "Municipality": "Lares",
+    "DIV-CODE": "PR-LAS",
+    "Latitude": 18.2955,
+    "Longitude": -66.8763,
+    "Description": "A PR-CYBR historical site fostering digital preservation of cultural heritage and coffee production industries."
+  },
+  {
+    "Municipality": "Las Marías",
+    "DIV-CODE": "PR-LAR",
+    "Latitude": 18.2511,
+    "Longitude": -66.9927,
+    "Description": "A PR-CYBR agricultural node ensuring secure practices for rural innovation and economic development."
+  },
+  {
+    "Municipality": "Las Piedras",
+    "DIV-CODE": "PR-LAP",
+    "Latitude": 18.1797,
+    "Longitude": -65.8713,
+    "Description": "A PR-CYBR artisan hub promoting secure digital solutions for local crafts and small businesses."
+  },
+  {
+    "Municipality": "Loíza",
+    "DIV-CODE": "PR-LOR",
+    "Latitude": 18.4333,
+    "Longitude": -65.8833,
+    "Description": "A PR-CYBR cultural hub protecting African heritage through secure digital platforms and educational outreach."
+  },
+  {
+    "Municipality": "Luquillo",
+    "DIV-CODE": "PR-LUI",
+    "Latitude": 18.3792,
+    "Longitude": -65.7167,
+    "Description": "A PR-CYBR eco-tourism site safeguarding digital infrastructure for beaches and national parks."
+  },
+  {
+    "Municipality": "Manatí",
+    "DIV-CODE": "PR-MTI",
+    "Latitude": 18.4275,
+    "Longitude": -66.4927,
+    "Description": "A PR-CYBR cultural and industrial hub fostering digital innovation in healthcare and commerce."
+  },
+  {
+    "Municipality": "Maricao",
+    "DIV-CODE": "PR-MAR",
+    "Latitude": 18.18,
+    "Longitude": -66.98,
+    "Description": "A PR-CYBR rural node supporting coffee production and promoting digital literacy in agricultural communities."
+  },
+  {
+    "Municipality": "Maunabo",
+    "DIV-CODE": "PR-MBO",
+    "Latitude": 18.0069,
+    "Longitude": -65.8991,
+    "Description": "A PR-CYBR coastal site ensuring secure digital ecosystems for tourism and local businesses."
+  },
+  {
+    "Municipality": "Mayagüez",
+    "DIV-CODE": "PR-MAY",
+    "Latitude": 18.2011,
+    "Longitude": -67.1396,
+    "Description": "A PR-CYBR educational and economic hub protecting universities and promoting digital innovation."
+  },
+  {
+    "Municipality": "Moca",
+    "DIV-CODE": "PR-MOC",
+    "Latitude": 18.3939,
+    "Longitude": -67.1132,
+    "Description": "A PR-CYBR artisan center safeguarding the digital presence of local lace-making traditions and businesses."
+  },
+  {
+    "Municipality": "Morovis",
+    "DIV-CODE": "PR-MOR",
+    "Latitude": 18.3219,
+    "Longitude": -66.4083,
+    "Description": "A PR-CYBR rural node fostering digital connectivity for isolated communities and local industries."
+  },
+  {
+    "Municipality": "Naguabo",
+    "DIV-CODE": "PR-NAG",
+    "Latitude": 18.2197,
+    "Longitude": -65.73,
+    "Description": "A PR-CYBR coastal hub supporting seafood industries and protecting digital tourism infrastructure."
+  },
+  {
+    "Municipality": "Naranjito",
+    "DIV-CODE": "PR-NAR",
+    "Latitude": 18.3019,
+    "Longitude": -66.2441,
+    "Description": "A PR-CYBR agricultural hub promoting secure digital practices in orange production and rural commerce."
+  },
+  {
+    "Municipality": "Orocovis",
+    "DIV-CODE": "PR-ORO",
+    "Latitude": 18.2244,
+    "Longitude": -66.3886,
+    "Description": "A PR-CYBR adventure tourism hub ensuring digital security for eco-tourism and local businesses."
+  },
+  {
+    "Municipality": "Patillas",
+    "DIV-CODE": "PR-PAT",
+    "Latitude": 18.0069,
+    "Longitude": -66.0158,
+    "Description": "A PR-CYBR ecological site promoting secure digital infrastructure for green tourism and coastal preservation."
+  },
+  {
+    "Municipality": "Peñuelas",
+    "DIV-CODE": "PR-PEN",
+    "Latitude": 18.0572,
+    "Longitude": -66.7222,
+    "Description": "A PR-CYBR cultural hub protecting local traditions and fostering secure digital practices for businesses."
+  },
+  {
+    "Municipality": "Ponce",
+    "DIV-CODE": "PR-PON",
+    "Latitude": 18.0111,
+    "Longitude": -66.6141,
+    "Description": "A PR-CYBR economic and cultural center ensuring cybersecurity for historical sites and commercial hubs."
+  },
+  {
+    "Municipality": "Quebradillas",
+    "DIV-CODE": "PR-QUE",
+    "Latitude": 18.4725,
+    "Longitude": -66.9375,
+    "Description": "A PR-CYBR coastal site fostering secure digital solutions for scenic tourism and local economic growth."
+  },
+  {
+    "Municipality": "Rincón",
+    "DIV-CODE": "PR-RIN",
+    "Latitude": 18.34,
+    "Longitude": -67.25,
+    "Description": "A PR-CYBR surfing destination promoting secure digital infrastructure for eco-tourism and coastal businesses."
+  },
+  {
+    "Municipality": "Río Grande",
+    "DIV-CODE": "PR-RIO",
+    "Latitude": 18.38,
+    "Longitude": -65.83,
+    "Description": "A PR-CYBR eco-tourism hub supporting secure digital practices for national parks and hospitality businesses."
+  },
+  {
+    "Municipality": "Río Piedras",
+    "DIV-CODE": "PR-ROJ",
+    "Latitude": 18.4019,
+    "Longitude": -66.0522,
+    "Description": "A PR-CYBR educational hub safeguarding digital infrastructure for academic institutions and urban development."
+  },
+  {
+    "Municipality": "Sabana Grande",
+    "DIV-CODE": "PR-SAB",
+    "Latitude": 18.0816,
+    "Longitude": -66.9622,
+    "Description": "A PR-CYBR artisan hub promoting digital resilience in traditional craft and small business communities."
+  },
+  {
+    "Municipality": "Salinas",
+    "DIV-CODE": "PR-SAL",
+    "Latitude": 17.9722,
+    "Longitude": -66.2972,
+    "Description": "A PR-CYBR ecological and industrial hub protecting digital resources for seafood industries and natural reserves."
+  },
+  {
+    "Municipality": "San Germán",
+    "DIV-CODE": "PR-SAN",
+    "Latitude": 18.0822,
+    "Longitude": -67.0458,
+    "Description": "A PR-CYBR historical site ensuring cybersecurity for colonial architecture and cultural preservation."
+  },
+  {
+    "Municipality": "San Juan",
+    "DIV-CODE": "PR-SJU",
+    "Latitude": 18.4655,
+    "Longitude": -66.1057,
+    "Description": "A PR-CYBR metropolitan command center leading digital resilience efforts across government, business, and education sectors."
+  },
+  {
+    "Municipality": "San Lorenzo",
+    "DIV-CODE": "PR-SLO",
+    "Latitude": 18.1894,
+    "Longitude": -65.961,
+    "Description": "A PR-CYBR node promoting secure digital solutions for agricultural communities and local enterprises."
+  },
+  {
+    "Municipality": "San Sebastián",
+    "DIV-CODE": "PR-SEB",
+    "Latitude": 18.3436,
+    "Longitude": -66.9936,
+    "Description": "A PR-CYBR eco-tourism hub focusing on protecting natural attractions and supporting local businesses."
+  },
+  {
+    "Municipality": "Santa Isabel",
+    "DIV-CODE": "PR-SIS",
+    "Latitude": 17.9667,
+    "Longitude": -66.4033,
+    "Description": "A PR-CYBR agricultural hub fostering secure digital practices in potato farming and rural industries."
+  },
+  {
+    "Municipality": "Toa Alta",
+    "DIV-CODE": "PR-TOA",
+    "Latitude": 18.3889,
+    "Longitude": -66.2483,
+    "Description": "A PR-CYBR historical site promoting digital preservation and fostering secure local business practices."
+  },
+  {
+    "Municipality": "Toa Baja",
+    "DIV-CODE": "PR-TOB",
+    "Latitude": 18.4497,
+    "Longitude": -66.2597,
+    "Description": "A PR-CYBR suburban hub supporting digital resilience for urban and coastal areas."
+  },
+  {
+    "Municipality": "Trujillo Alto",
+    "DIV-CODE": "PR-TRU",
+    "Latitude": 18.3547,
+    "Longitude": -66.0078,
+    "Description": "A PR-CYBR residential and ecological site fostering secure digital infrastructure for suburban communities."
+  },
+  {
+    "Municipality": "Utuado",
+    "DIV-CODE": "PR-UTU",
+    "Latitude": 18.2686,
+    "Longitude": -66.7005,
+    "Description": "A PR-CYBR eco-tourism hub ensuring digital protection for cultural sites and natural attractions."
+  },
+  {
+    "Municipality": "Vega Alta",
+    "DIV-CODE": "PR-VEA",
+    "Latitude": 18.4153,
+    "Longitude": -66.3269,
+    "Description": "A PR-CYBR coastal hub supporting secure digital solutions for national parks and local businesses."
+  },
+  {
+    "Municipality": "Vega Baja",
+    "DIV-CODE": "PR-VEB",
+    "Latitude": 18.4444,
+    "Longitude": -66.3875,
+    "Description": "A PR-CYBR coastal site promoting secure digital practices for tourism and historical preservation."
+  },
+  {
+    "Municipality": "Vieques",
+    "DIV-CODE": "PR-VIE",
+    "Latitude": 18.1344,
+    "Longitude": -65.4401,
+    "Description": "A PR-CYBR island initiative ensuring secure digital ecosystems for eco-tourism and marine conservation."
+  },
+  {
+    "Municipality": "Villalba",
+    "DIV-CODE": "PR-VIL",
+    "Latitude": 18.1308,
+    "Longitude": -66.4908,
+    "Description": "A PR-CYBR rural node fostering secure digital innovation for hydroelectric and agricultural projects."
+  },
+  {
+    "Municipality": "Yabucoa",
+    "DIV-CODE": "PR-YAB",
+    "Latitude": 18.0519,
+    "Longitude": -65.8797,
+    "Description": "A PR-CYBR coastal hub protecting the digital infrastructure of agricultural and small business enterprises."
+  },
+  {
+    "Municipality": "Yauco",
+    "DIV-CODE": "PR-YAU",
+    "Latitude": 18.0353,
+    "Longitude": -66.8491,
+    "Description": "A PR-CYBR cultural and agricultural site promoting digital resilience for coffee production and urban art initiatives."
+  }
+]
