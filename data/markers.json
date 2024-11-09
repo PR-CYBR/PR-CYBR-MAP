@@ -1,0 +1,32 @@
+{
+    "markers": [
+        {
+            "lat": 18.4655,
+            "lng": -66.1057,
+            "name": "San Juan",
+            "description": "San Juan is the capital and most populous city in Puerto Rico, known for its rich history and culture.",
+            "moreInfo": "San Juan was founded in 1521 by Spanish colonists and is the oldest European-founded city under U.S. jurisdiction."
+        },
+        {
+            "lat": 18.4275,
+            "lng": -66.0647,
+            "name": "Ceiba",
+            "description": "Ceiba is a small municipality in northeast Puerto Rico.",
+            "moreInfo": "Ceiba is known for its beautiful beaches and was once home to the Roosevelt Roads Naval Station."
+        },
+        {
+            "lat": 18.0108,
+            "lng": -66.6131,
+            "name": "Ponce",
+            "description": "Ponce is the second largest city in Puerto Rico, often called 'La Perla del Sur' (Pearl of the South).",
+            "moreInfo": "Ponce is famous for its architecture, museums, and historical sites like the Parque de Bombas."
+        },
+        {
+            "lat": 18.4274,
+            "lng": -67.1541,
+            "name": "Aguadilla",
+            "description": "Aguadilla is a city on the northwest coast, known for its beaches and surfing spots.",
+            "moreInfo": "Aguadilla hosts the Rafael Hernández Airport and attractions like Crash Boat Beach and Las Cascadas Water Park."
+        }
+    ]
+}
