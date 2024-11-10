@@ -1,3 +1,2 @@
 # TAK Resources for PR-ARR
-
-This folder is reserved for TAK (Tactical Assault Kit) integration resources for the PR-ARR division.
+This folder contains TAK (Tactical Assault Kit) integration files for the PR-ARR division.
