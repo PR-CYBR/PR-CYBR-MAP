@@ -9,7 +9,7 @@ An interactive map of Puerto Rico styled with the Jawg Matrix theme, showcasing 
 - **Responsive Design**: Works on both desktop and mobile devices.
 
 ## How to View
-Visit the live site: [PR-CYBR Map]([https://cywf.github.io/PR-CYBR-MAP/](https://cywf.github.io/PR-CYBR-MAP/)
+Visit the live site: PR-CYBR Map: https://cywf.github.io/PR-CYBR-MAP/
 
 ## Development
 1. Clone the repository:
