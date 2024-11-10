@@ -1,0 +1,2 @@
+# Beacon Data
+This file will store beacon links for QR code generation.

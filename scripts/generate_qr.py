@@ -1,30 +1,31 @@
 import os
 import qrcode
+import datetime
 
-# Define the root directory to search for TAK files
+# Root directory for divisions
 ROOT_DIR = "PR-DIV"
-TAK_SUBDIR = "TAK"
 
-def generate_qr_from_file(file_path, output_dir):
-    with open(file_path, "r") as file:
-        for line in file:
-            link = line.strip()
-            if link:
-                # Create a QR code
-                qr = qrcode.make(link)
-                # Save QR code as .png in the TAK directory
-                qr_code_filename = os.path.join(output_dir, f"{link.split('//')[-1].replace('/', '_')}.png")
-                qr.save(qr_code_filename)
-                print(f"Generated QR Code for: {link}")
-
-def main():
-    for root, dirs, files in os.walk(ROOT_DIR):
-        if TAK_SUBDIR in root:
-            for file in files:
-                if file.endswith(".txt"):
-                    file_path = os.path.join(root, file)
-                    output_dir = os.path.dirname(file_path)
-                    generate_qr_from_file(file_path, output_dir)
-
-if __name__ == "__main__":
-    main()
+# Process each division
+for div in os.listdir(ROOT_DIR):
+    tak_dir = os.path.join(ROOT_DIR, div, "TAK")
+    beacons_file = os.path.join(tak_dir, "beacons.txt")
+    
+    # Check if the beacons.txt file exists
+    if os.path.isfile(beacons_file):
+        with open(beacons_file, 'r') as file:
+            lines = file.readlines()
+        
+        for line in lines:
+            # Skip comments or empty lines
+            if line.startswith("#") or not line.strip():
+                continue
+            
+            # Parse the URL
+            url = line.strip()
+            
+            # Generate QR code
+            qr = qrcode.make(url)
+            timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+            qr_path = os.path.join(tak_dir, f"qr_{timestamp}.png")
+            qr.save(qr_path)
+            print(f"QR code generated and saved at {qr_path}")
