@@ -1,59 +1,93 @@
 /* Styles for the ASCOPE sidebar */
 .ascope-sidebar {
     width: 400px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Light background for ASCOPE sidebar */
     position: fixed;
-    left: 0;
+    left: -400px; /* Hidden by default */
     top: 0;
     height: 100%;
     overflow-y: auto;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    transition: left 0.3s ease;
-    z-index: 1000;
-    display: none; /* Hidden by default */
+    transition: left 0.3s ease; /* Smooth slide-in effect */
+    z-index: 1100; /* Above the map and default sidebar */
+    color: #333;
 }
 
+/* Active state to reveal the ASCOPE sidebar */
 .ascope-sidebar.active {
-    display: block; /* Display when active */
+    left: 0; /* Slides the sidebar into view */
 }
 
+/* Header styles for ASCOPE sidebar */
 .ascope-sidebar h2 {
     margin-top: 0;
-    color: #333;
+    color: #007BFF; /* Primary color for headings */
     font-size: 1.5em;
 }
 
+/* Paragraph styles within the ASCOPE sidebar */
 .ascope-sidebar p {
     color: #666;
     line-height: 1.6;
 }
 
+/* List styles for structured content */
 .ascope-sidebar ul {
-    list-style: none;
+    list-style: none; /* Remove bullets */
     padding: 0;
 }
 
 .ascope-sidebar ul li {
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; /* Light divider between list items */
     color: #333;
 }
 
 .ascope-sidebar ul li:last-child {
-    border-bottom: none;
+    border-bottom: none; /* Remove the divider for the last item */
 }
 
+/* Buttons within the ASCOPE sidebar */
 .ascope-sidebar button {
+    display: block; /* Full-width button */
+    width: 100%; /* Align with sidebar content */
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #007BFF; /* Same primary color for consistency */
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    text-align: center;
 }
 
 .ascope-sidebar button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Additional customization for ASCOPE sidebar content */
+.ascope-sidebar .section {
+    margin-bottom: 20px;
+}
+
+.ascope-sidebar .section h3 {
+    color: #007BFF; /* Subheading color */
+    margin-bottom: 10px;
+}
+
+.ascope-sidebar .section p {
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Links within the ASCOPE sidebar */
+.ascope-sidebar a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ascope-sidebar a:hover {
+    text-decoration: underline;
 }
