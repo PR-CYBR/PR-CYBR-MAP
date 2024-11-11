@@ -1,0 +1,46 @@
+{
+    "template": {
+        "Area": {
+            "description": "Placeholder for the geographical description of the area",
+            "key_locations": [
+                "Key location 1",
+                "Key location 2"
+            ]
+        },
+        "Structures": {
+            "description": "Placeholder for significant structures in the area",
+            "critical_infrastructure": [
+                "Critical infrastructure 1",
+                "Critical infrastructure 2"
+            ]
+        },
+        "Capabilities": {
+            "description": "Placeholder for the capabilities of the area",
+            "resources": [
+                "Resource 1",
+                "Resource 2"
+            ]
+        },
+        "Organizations": {
+            "description": "Placeholder for influential organizations in the area",
+            "key_organizations": [
+                "Organization 1",
+                "Organization 2"
+            ]
+        },
+        "People": {
+            "description": "Placeholder for key individuals or groups in the area",
+            "notable_individuals": [
+                "Individual 1",
+                "Individual 2"
+            ]
+        },
+        "Events": {
+            "description": "Placeholder for notable past, present, or future events",
+            "key_events": [
+                "Event 1",
+                "Event 2"
+            ]
+        }
+    }
+}

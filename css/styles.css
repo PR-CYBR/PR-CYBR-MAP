@@ -73,3 +73,20 @@ body {
 #sidebar.active ~ #map {
     width: calc(100% - 400px);
 }
+/* Style for the Generate ASCOPE Report button */
+.sidebar-button {
+    display: block; /* Ensures the button takes up its own line */
+    width: 100%; /* Aligns the button width with other sidebar elements */
+    padding: 10px 20px;
+    margin: 10px 0; /* Adds spacing between the button and other elements */
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Centers the text within the button */
+}
+
+.sidebar-button:hover {
+    background-color: #0056b3;
+}

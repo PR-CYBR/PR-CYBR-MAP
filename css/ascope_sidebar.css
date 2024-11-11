@@ -1,0 +1,59 @@
+/* Styles for the ASCOPE sidebar */
+.ascope-sidebar {
+    width: 400px;
+    background-color: #f9f9f9;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.ascope-sidebar.active {
+    display: block; /* Display when active */
+}
+
+.ascope-sidebar h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.ascope-sidebar p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.ascope-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ascope-sidebar ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+.ascope-sidebar ul li:last-child {
+    border-bottom: none;
+}
+
+.ascope-sidebar button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.ascope-sidebar button:hover {
+    background-color: #0056b3;
+}

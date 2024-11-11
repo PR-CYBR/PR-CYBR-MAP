@@ -7,7 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch config.json to get tokens
     fetch('data/config.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(config => {
             JAWG_ACCESS_TOKEN = config.JAWG_ACCESS_TOKEN;
 
@@ -18,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 maxZoom: 22
             }).addTo(map);
         })
-        .catch(error => console.error("Error loading config.json:", error));
+        .catch(error => console.error("Error loading config.json:", error.message));
 
     let cityDataGlobal = []; // To store marker data globally
 
     // Define a default custom icon
     const defaultIcon = L.icon({
-        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', // Default Leaflet icon
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
@@ -135,4 +140,26 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
+
+    // Event listener for the Generate ASCOPE Report button
+    document.getElementById('generate-ascope-report').addEventListener('click', () => {
+        console.log("Generate ASCOPE Report button clicked");
+
+        // Placeholder logic for ASCOPE Report generation
+        fetch('scripts/ascope_generator.py', { method: 'POST' })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error generating report. Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(result => {
+                console.log("ASCOPE Report generated successfully:", result);
+                alert("ASCOPE Report generated successfully! Check the output directory.");
+            })
+            .catch(error => {
+                console.error("Error generating ASCOPE Report:", error.message);
+                alert("Failed to generate ASCOPE Report. Please try again.");
+            });
+    });
 });
