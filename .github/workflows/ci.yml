@@ -7,9 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: 'pnpm' }
+        with:
+          node-version: 20
+          cache: pnpm
+
       - run: corepack enable
-      - run: pnpm install --frozen-lockfile --prefer-offline --no-audit
-      - run: pnpm run lint
+
+      # install deps – no lockfile yet, so skip frozen flag
+      - run: pnpm install --prefer-offline
+
+      # run lint/test only if scripts are defined
+      - run: pnpm run lint --if-present
       - run: pnpm run test --if-present
