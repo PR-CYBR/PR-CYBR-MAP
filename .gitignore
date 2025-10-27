@@ -1,0 +1,17 @@
+# Config files with sensitive tokens
+data/config.json
+
+# Build artifacts
+node_modules/
+dist/
+build/
+
+# Temporary files
+*.tmp
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

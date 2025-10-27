@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>PR-CYBR-MAP</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/widgets.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
@@ -13,7 +14,34 @@
         <!-- Sidebar content will be injected here -->
         <button id="generate-ascope-report" class="sidebar-button">Generate ASCOPE Report</button>
     </div>
+    
+    <!-- Control Panel -->
+    <div id="control-panel">
+        <h3>Map Controls</h3>
+        <button id="toggle-weather" class="control-button">Toggle Weather Radar</button>
+        <button id="toggle-utilities" class="control-button">Toggle Utilities Grid</button>
+        <button id="refresh-hurricanes" class="control-button">Refresh Hurricane Data</button>
+        <button id="refresh-alerts" class="control-button">Refresh Weather Alerts</button>
+        <div class="address-routing">
+            <input type="text" id="address-input" placeholder="Enter address for shelter routing" />
+            <button id="route-to-shelter" class="control-button">Find Nearest Shelter</button>
+        </div>
+    </div>
+    
+    <!-- Dashboard Widgets Container -->
+    <div id="dashboard-widgets">
+        <!-- SDR and SITREP widgets will be injected here -->
+    </div>
+    
+    <!-- Load all JavaScript modules -->
+    <script src="js/weather.js"></script>
+    <script src="js/hurricane.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/shelters.js"></script>
+    <script src="js/sdr.js"></script>
+    <script src="js/sitrep.js"></script>
     <script src="js/map.js"></script>
-    <script src="js/ascope_report.js"></script> <!-- Added the ASCOPE report script -->
+    <script src="js/ascope_report.js"></script>
+    <script src="js/controls.js"></script>
 </body>
 </html>

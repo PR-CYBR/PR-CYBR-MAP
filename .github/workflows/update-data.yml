@@ -1,0 +1,105 @@
+name: Update Emergency Data
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Fetch Hurricane Data
+        run: |
+          python -c "
+          import requests
+          import json
+          import os
+          from datetime import datetime
+
+          # Fetch hurricane data from NOAA
+          try:
+              response = requests.get('https://www.nhc.noaa.gov/gis/storm_walw.json', timeout=30)
+              if response.status_code == 200:
+                  data = response.json()
+                  os.makedirs('data/cache', exist_ok=True)
+                  with open('data/cache/hurricanes.json', 'w') as f:
+                      json.dump(data, f)
+                  print(f'Hurricane data updated: {datetime.now()}')
+              else:
+                  print(f'Failed to fetch hurricane data: {response.status_code}')
+          except Exception as e:
+              print(f'Error fetching hurricane data: {e}')
+          "
+
+      - name: Fetch Weather Alerts
+        run: |
+          python -c "
+          import requests
+          import json
+          import os
+          from datetime import datetime
+
+          # Fetch weather alerts for Puerto Rico
+          try:
+              response = requests.get('https://api.weather.gov/alerts/active?area=PR', timeout=30)
+              if response.status_code == 200:
+                  data = response.json()
+                  os.makedirs('data/cache', exist_ok=True)
+                  with open('data/cache/weather_alerts.json', 'w') as f:
+                      json.dump(data, f)
+                  print(f'Weather alerts updated: {datetime.now()}')
+              else:
+                  print(f'Failed to fetch weather alerts: {response.status_code}')
+          except Exception as e:
+              print(f'Error fetching weather alerts: {e}')
+          "
+
+      - name: Update Shelter Data
+        run: |
+          python -c "
+          import json
+          import os
+          from datetime import datetime
+
+          # Static shelter data (in production, this could fetch from a database)
+          shelters = [
+              {'name': 'Centro de Convenciones', 'lat': 18.4663, 'lng': -66.1057, 'capacity': 500, 'address': 'San Juan', 'status': 'available'},
+              {'name': 'Coliseo Roberto Clemente', 'lat': 18.4396, 'lng': -66.0644, 'capacity': 1000, 'address': 'San Juan', 'status': 'available'},
+              {'name': 'Escuela Superior Emilio R. Delgado', 'lat': 18.2208, 'lng': -66.5901, 'capacity': 300, 'address': 'Corozal', 'status': 'available'},
+              {'name': 'Centro Comunal de Ponce', 'lat': 18.0110, 'lng': -66.6140, 'capacity': 400, 'address': 'Ponce', 'status': 'available'},
+              {'name': 'Escuela Superior de Mayagüez', 'lat': 18.2013, 'lng': -67.1397, 'capacity': 350, 'address': 'Mayagüez', 'status': 'available'},
+              {'name': 'Coliseo de Arecibo', 'lat': 18.4728, 'lng': -66.7202, 'capacity': 800, 'address': 'Arecibo', 'status': 'available'},
+              {'name': 'Centro Gubernamental de Bayamón', 'lat': 18.3989, 'lng': -66.1608, 'capacity': 600, 'address': 'Bayamón', 'status': 'available'},
+              {'name': 'Escuela Inés María Mendoza', 'lat': 18.4248, 'lng': -65.8247, 'capacity': 250, 'address': 'Carolina', 'status': 'available'},
+              {'name': 'Centro Comunal de Caguas', 'lat': 18.2342, 'lng': -66.0356, 'capacity': 450, 'address': 'Caguas', 'status': 'available'},
+              {'name': 'Coliseo Manuel Iguina Reyes', 'lat': 18.0180, 'lng': -66.3706, 'capacity': 700, 'address': 'Guayama', 'status': 'available'}
+          ]
+          
+          os.makedirs('data/cache', exist_ok=True)
+          with open('data/cache/shelters.json', 'w') as f:
+              json.dump({'shelters': shelters, 'last_updated': datetime.now().isoformat()}, f)
+          print(f'Shelter data updated: {datetime.now()}')
+          "
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update emergency data - $(date)" && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

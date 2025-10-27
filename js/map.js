@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize the map
     var map = L.map('map').setView([18.2208, -66.5901], 8); // Center on Puerto Rico
 
+    // Initialize all modules
+    let weatherModule, hurricaneTracker, utilityModule, shelterModule, sdrModule, sitrepModule;
+    let currentTheme = 'matrix'; // Default theme
+
     // Access tokens loaded from config.json
     let JAWG_ACCESS_TOKEN;
 
@@ -22,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 minZoom: 0,
                 maxZoom: 22
             }).addTo(map);
+
+            // Initialize modules after map is ready
+            initializeModules();
         })
         .catch(error => console.error("Error loading config.json:", error.message));
 
@@ -139,6 +146,42 @@ document.addEventListener("DOMContentLoaded", function () {
                 map.invalidateSize();
             });
         }
+    }
+
+    // Initialize all new modules
+    function initializeModules() {
+        // Weather Module
+        weatherModule = new WeatherModule(map);
+        window.weatherModule = weatherModule;
+        
+        // Hurricane Tracker
+        hurricaneTracker = new HurricaneTracker(map);
+        hurricaneTracker.startAutoUpdate();
+        window.hurricaneTracker = hurricaneTracker;
+        
+        // Utility Module
+        utilityModule = new UtilityModule(map);
+        window.utilityModule = utilityModule;
+        
+        // Shelter Module
+        shelterModule = new ShelterModule(map);
+        window.shelterModule = shelterModule; // Make available globally for popup buttons
+        shelterModule.loadShelters();
+        
+        // SDR Module
+        sdrModule = new SDRModule();
+        sdrModule.initWidget('dashboard-widgets');
+        sdrModule.startMonitoring();
+        window.sdrModule = sdrModule;
+        
+        // SITREP Module
+        sitrepModule = new SITREPModule();
+        sitrepModule.initWidget('dashboard-widgets');
+        sitrepModule.loadHistoricalReports();
+        sitrepModule.startUpdates();
+        window.sitrepModule = sitrepModule;
+
+        console.log('All modules initialized successfully');
     }
 
     // Event listener for the Generate ASCOPE Report button
