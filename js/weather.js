@@ -81,7 +81,8 @@ class WeatherModule {
 
         this.alertsData.forEach(alert => {
             const props = alert.properties;
-            if (props.geometry && alert.geometry) {
+            // Check only for alert.geometry (NOAA's alert payload has geometry at feature root)
+            if (alert.geometry) {
                 // Create marker for alert
                 const alertIcon = L.divIcon({
                     className: 'weather-alert-icon',
