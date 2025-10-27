@@ -1,7 +1,12 @@
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: read  # Required to checkout code
 
 jobs:
   deploy:
