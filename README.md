@@ -76,7 +76,7 @@ Two widgets in the bottom-right provide live updates:
    Then open http://localhost:8000
 
 ### Deployment
-Changes pushed to the `main` branch automatically deploy via GitHub Pages through the deploy workflow.
+Changes pushed to the `main` branch automatically deploy to the `pages` branch via GitHub Pages through the deploy workflow. See `GITHUB_PAGES_CONFIGURATION.md` for setup details.
 
 ### Automated Data Updates
 The system uses GitHub Actions to automatically update emergency data every 30 minutes:

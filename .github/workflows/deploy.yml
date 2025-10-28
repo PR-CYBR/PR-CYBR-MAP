@@ -30,6 +30,6 @@ jobs:
         with:
           personal_token: ${{ secrets.PR_CYBR_DEPLOY }} # Updated PAT secret reference
           publish_dir: .
-          publish_branch: gh-pages # Explicitly specify the branch to deploy
+          publish_branch: pages # Deploy to pages branch instead of gh-pages
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
