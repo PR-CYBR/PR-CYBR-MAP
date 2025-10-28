@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: read  # Required to checkout code
+  pages: write    # Required to deploy to GitHub Pages
+  id-token: write # Required to verify deployment authenticity
 
 jobs:
   deploy:
@@ -28,7 +30,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PR_CYBR_DEPLOY }} # Updated PAT secret reference
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN instead of personal token
           publish_dir: .
           publish_branch: pages # Deploy to pages branch instead of gh-pages
           user_name: 'github-actions[bot]'
