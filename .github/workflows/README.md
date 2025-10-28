@@ -13,12 +13,13 @@ Automatically deploys the application to GitHub Pages when changes are pushed to
 **Steps:**
 1. Checks out the repository
 2. Injects access tokens from GitHub Secrets into `data/config.json`
-3. Deploys to `gh-pages` branch
+3. Deploys to `pages` branch using built-in GITHUB_TOKEN
 
 **Required Secrets:**
 - `MAPBOX_ACCESS_TOKEN` - Mapbox API token
 - `JAWG_ACCESS_TOKEN` - Jawg Maps API token
-- `PR_CYBR_DEPLOY` - Personal access token for deployment
+
+**Note:** The workflow uses the built-in `GITHUB_TOKEN` for deployment, which is automatically provided by GitHub Actions with the required permissions (`pages: write`, `id-token: write`).
 
 ### update-data.yml
 Automatically updates emergency data from public APIs every 30 minutes.
@@ -54,12 +55,13 @@ If you fork this repository, you'll need to:
    - Go to Settings → Secrets and variables → Actions
    - Add `MAPBOX_ACCESS_TOKEN` with your Mapbox token
    - Add `JAWG_ACCESS_TOKEN` with your Jawg token
-   - Add `PR_CYBR_DEPLOY` with a personal access token that has repo permissions
+   
+   **Note:** No personal access token is needed - the workflow uses the built-in `GITHUB_TOKEN`
 
 2. Enable GitHub Pages:
    - Go to Settings → Pages
    - Set Source to "Deploy from a branch"
-   - Select the `gh-pages` branch
+   - Select the `pages` branch (not `gh-pages`)
 
 3. Enable GitHub Actions:
    - Go to Actions tab
@@ -75,9 +77,10 @@ You can monitor workflow runs:
 ## Troubleshooting
 
 ### deploy.yml fails
-- Check that all required secrets are set
-- Verify the `PR_CYBR_DEPLOY` token has the correct permissions
-- Check that GitHub Pages is enabled
+- Check that all required secrets are set (MAPBOX_ACCESS_TOKEN, JAWG_ACCESS_TOKEN)
+- Verify that GitHub Pages is enabled and set to deploy from the `pages` branch
+- Check workflow permissions in the workflow file (should have `pages: write` and `id-token: write`)
+- View the workflow logs in the Actions tab for detailed error messages
 
 ### update-data.yml fails
 - Check the workflow logs for API errors
