@@ -2,8 +2,8 @@ name: Update Emergency Data
 
 on:
   schedule:
-    # Run every 30 minutes
-    - cron: '*/30 * * * *'
+    # Run once per day at midnight UTC
+    - cron: '0 0 * * *'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
