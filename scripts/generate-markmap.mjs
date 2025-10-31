@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Generates markmap/repo-map.md from the current repo.
-// No deps, Node >= 18 (tested on 20). Conservative scan to avoid CI melt-down.
+// No deps, Node >= 20. Conservative scan to avoid CI melt-down.
 
 import { promises as fs } from "fs";
 import path from "path";
@@ -37,7 +37,7 @@ const LANGUAGE_EXT_MAP = {
   ".cs": "C#", ".rb": "Ruby", ".php": "PHP",
   ".sh": "Shell", ".ps1": "PowerShell",
   ".scala": "Scala", ".swift": "Swift",
-  ".m": "Objective‑C", ".mm": "Objective‑C++",
+  ".m": "Objective-C", ".mm": "Objective-C++",
   ".r": "R", ".lua": "Lua"
 };
 

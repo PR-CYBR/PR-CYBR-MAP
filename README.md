@@ -33,7 +33,7 @@ Visit the live site: [PR-CYBR Map](https://cywf.github.io/PR-CYBR-MAP/)
 
 ## Live Codebase Mindmap
 Auto-generated on each push: **repo-map.html** (via GitHub Pages and CI artifact).
-When Pages is enabled, it will be served at: `https://pr-cybr.github.io/PR-CYBR-MAP/repo-map.html`
+When Pages is enabled, it will be served at: `https://<owner>.github.io/<repo>/repo-map.html`
 
 ## Using the Map
 
