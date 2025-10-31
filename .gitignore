@@ -5,6 +5,7 @@ data/config.json
 node_modules/
 dist/
 build/
+markmap/
 
 # Temporary files
 *.tmp
