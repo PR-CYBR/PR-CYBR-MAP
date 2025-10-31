@@ -1,0 +1,21 @@
+sequenceDiagram
+actor Dev
+participant GitHub
+participant Runner
+Dev->>GitHub: triggers "Deploy to GitHub Pages"
+GitHub->>Runner: dispatch
+loop Deploy to GitHub Pages
+end
+Dev->>GitHub: triggers "Generate QR Codes and Update Beacon Data"
+GitHub->>Runner: dispatch
+loop Generate QR Codes and Update Beacon Data
+Runner->>Runner: job workflow_dispatch
+end
+Dev->>GitHub: triggers "Codebase Mindmap"
+GitHub->>Runner: dispatch
+loop Codebase Mindmap
+end
+Dev->>GitHub: triggers "Update Emergency Data"
+GitHub->>Runner: dispatch
+loop Update Emergency Data
+end
