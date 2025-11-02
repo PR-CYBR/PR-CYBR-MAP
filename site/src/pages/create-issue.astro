@@ -6,28 +6,32 @@ const issueTemplates = [
     title: 'Bug Report',
     description: 'Report a bug or issue with the application',
     icon: 'bug',
-    color: 'error',
+    colorClass: 'border-error hover:border-error',
+    badgeClass: 'badge-error',
     url: 'https://github.com/PR-CYBR/PR-CYBR-MAP/issues/new?template=bug_report.md&labels=bug',
   },
   {
     title: 'Feature Request',
     description: 'Suggest a new feature or enhancement',
     icon: 'lightbulb',
-    color: 'success',
+    colorClass: 'border-success hover:border-success',
+    badgeClass: 'badge-success',
     url: 'https://github.com/PR-CYBR/PR-CYBR-MAP/issues/new?template=feature_request.md&labels=enhancement',
   },
   {
     title: 'Documentation',
     description: 'Report issues or suggest improvements to documentation',
     icon: 'doc',
-    color: 'info',
+    colorClass: 'border-info hover:border-info',
+    badgeClass: 'badge-info',
     url: 'https://github.com/PR-CYBR/PR-CYBR-MAP/issues/new?labels=documentation&title=Docs:',
   },
   {
     title: 'Question',
     description: 'Ask a question about the project',
     icon: 'question',
-    color: 'warning',
+    colorClass: 'border-warning hover:border-warning',
+    badgeClass: 'badge-warning',
     url: 'https://github.com/PR-CYBR/PR-CYBR-MAP/issues/new?labels=question&title=Question:',
   },
 ];
@@ -48,10 +52,10 @@ const issueTemplates = [
           href={template.url}
           target="_blank"
           rel="noopener noreferrer"
-          class={`card bg-base-200 hover:bg-base-300 shadow-xl transition-all hover:scale-105 border-2 border-${template.color}/20 hover:border-${template.color}`}
+          class={`card bg-base-200 hover:bg-base-300 shadow-xl transition-all hover:scale-105 border-2 ${template.colorClass}`}
         >
           <div class="card-body">
-            <div class={`text-${template.color} mb-4`}>
+            <div class={template.icon === 'bug' ? 'text-error mb-4' : template.icon === 'lightbulb' ? 'text-success mb-4' : template.icon === 'doc' ? 'text-info mb-4' : 'text-warning mb-4'}>
               {template.icon === 'bug' && (
                 <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -76,7 +80,7 @@ const issueTemplates = [
             <h2 class="card-title">{template.title}</h2>
             <p class="text-sm text-base-content/70">{template.description}</p>
             <div class="card-actions justify-end mt-4">
-              <div class={`badge badge-${template.color}`}>Open in GitHub</div>
+              <div class={`badge ${template.badgeClass}`}>Open in GitHub</div>
             </div>
           </div>
         </a>
