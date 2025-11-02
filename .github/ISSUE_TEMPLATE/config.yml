@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/PR-CYBR/PR-CYBR-MAP/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: Documentation
+    url: https://pr-cybr.github.io/PR-CYBR-MAP/docs
+    about: Read the project documentation
