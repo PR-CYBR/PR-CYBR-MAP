@@ -1,0 +1,133 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'site/package-lock.json'
+      
+      # Sync map assets and data into site build
+      - name: Copy legacy map assets
+        run: |
+          echo "Copying CSS assets..."
+          mkdir -p site/public/css
+          cp -r css/* site/public/css/
+          
+          echo "Copying JS assets..."
+          mkdir -p site/public/js
+          cp -r js/* site/public/js/
+          
+          echo "Copying data cache..."
+          mkdir -p site/public/data/cache
+          if [ -d "data/cache" ]; then
+            cp -r data/cache/* site/public/data/cache/
+          fi
+          
+          echo "Copying location data..."
+          if [ -f "data/PR-CYBR-MAP.json" ]; then
+            cp data/PR-CYBR-MAP.json site/public/data/cache/
+          fi
+          
+          echo "Copying config (if exists)..."
+          if [ -f "data/config.json" ]; then
+            cp data/config.json site/public/data/
+          fi
+          
+          echo "Copying mermaid diagrams..."
+          mkdir -p site/public/diagrams
+          if [ -d "mermaid" ]; then
+            cp mermaid/*.mmd site/public/diagrams/ 2>/dev/null || true
+          fi
+      
+      # Inject secrets for map tiles
+      - name: Create config.json with secrets
+        run: |
+          mkdir -p site/public/data
+          cat > site/public/data/config.json << EOF
+          {
+            "MAPBOX_ACCESS_TOKEN": "${{ secrets.MAPBOX_ACCESS_TOKEN }}",
+            "JAWG_ACCESS_TOKEN": "${{ secrets.JAWG_ACCESS_TOKEN }}"
+          }
+          EOF
+        env:
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+          JAWG_ACCESS_TOKEN: ${{ secrets.JAWG_ACCESS_TOKEN }}
+      
+      # Install dependencies
+      - name: Install dependencies
+        working-directory: ./site
+        run: npm ci --legacy-peer-deps
+      
+      # Run snapshot scripts to fetch GitHub data
+      - name: Fetch repository statistics
+        working-directory: ./site
+        run: npm run snapshot:stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+      
+      - name: Fetch discussions
+        working-directory: ./site
+        run: npm run snapshot:discussions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+      
+      - name: Fetch project board
+        working-directory: ./site
+        run: npm run snapshot:projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+      
+      # Build the site
+      - name: Build with Astro
+        working-directory: ./site
+        run: npm run build
+        env:
+          PUBLIC_DEFAULT_THEME: nightfall
+      
+      # Setup Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      # Upload artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
