@@ -1,0 +1,46 @@
+{
+  "name": "pr-cybr-map-site",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check",
+    "snapshot:stats": "tsx scripts/fetch_repo_data.ts",
+    "snapshot:discussions": "tsx scripts/fetch_discussions.ts",
+    "snapshot:projects": "tsx scripts/fetch_projects.ts",
+    "snapshot:all": "npm run snapshot:stats && npm run snapshot:discussions && npm run snapshot:projects"
+  },
+  "keywords": [
+    "astro",
+    "emergency-response",
+    "puerto-rico",
+    "map"
+  ],
+  "author": "PR-CYBR",
+  "license": "ISC",
+  "description": "Multi-page Astro site for PR-CYBR emergency response map",
+  "dependencies": {
+    "@astrojs/react": "^3.6.3",
+    "@astrojs/tailwind": "^5.1.5",
+    "@types/leaflet": "^1.9.21",
+    "astro": "^4.16.19",
+    "chart.js": "^4.5.1",
+    "daisyui": "^4.12.24",
+    "leaflet": "^1.9.4",
+    "mermaid": "^11.12.1",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.18"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "@types/node": "^24.9.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
