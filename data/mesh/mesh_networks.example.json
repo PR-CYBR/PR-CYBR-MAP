@@ -1,0 +1,183 @@
+{
+  "networks": [
+    {
+      "id": "pr-san-juan-mesh",
+      "name": "San Juan Metro Mesh",
+      "description": "Community mesh network covering the San Juan metropolitan area for emergency communications",
+      "prDiv": "PR-SAN",
+      "totalNodes": 25,
+      "activeNodes": 18,
+      "status": "active",
+      "established": "2024-01-15",
+      "primaryUse": "EMCOMM",
+      "profileUrl": "https://example.com/networks/pr-san-juan-mesh",
+      "contact": {
+        "discord": "https://discord.gg/example",
+        "email": "mesh@sanjuan.pr"
+      },
+      "nodes": [
+        {
+          "id": "node-sj-001",
+          "name": "Old San Juan Gateway",
+          "lat": 18.4663,
+          "lon": -66.1057,
+          "altitude": 15,
+          "deviceType": "trekker-copilot",
+          "role": "gateway",
+          "status": "active",
+          "owner": "PR-CYBR Community"
+        },
+        {
+          "id": "node-sj-002",
+          "name": "Condado Router",
+          "lat": 18.4568,
+          "lon": -66.0753,
+          "altitude": 25,
+          "deviceType": "custom-router",
+          "role": "router",
+          "status": "active",
+          "owner": "PR-CYBR Community"
+        },
+        {
+          "id": "node-sj-003",
+          "name": "Hato Rey Hub",
+          "lat": 18.4251,
+          "lon": -66.0631,
+          "altitude": 30,
+          "deviceType": "wisblock",
+          "role": "router",
+          "status": "active",
+          "owner": "PR-CYBR Community"
+        }
+      ],
+      "coverage": {
+        "estimatedRangeKm": 15,
+        "reliabilityPercent": 85
+      },
+      "profile": {
+        "logoUrl": null,
+        "links": {
+          "github": "https://github.com/pr-cybr",
+          "docs": "https://pr-cybr.github.io/PR-CYBR-MAP/",
+          "discord": "https://discord.gg/example"
+        },
+        "operatingRegion": "San Juan Metropolitan Area",
+        "configSummary": {
+          "defaultModemPreset": "LONG_MODERATE",
+          "channelName": "SJMetroMesh",
+          "encryptionEnabled": true,
+          "hopLimit": 3
+        }
+      }
+    },
+    {
+      "id": "pr-mountain-ridge",
+      "name": "Central Mountain Ridge Network",
+      "description": "Long-range mesh network connecting mountain communities",
+      "prDiv": "PR-AIB",
+      "totalNodes": 12,
+      "activeNodes": 10,
+      "status": "active",
+      "established": "2024-02-20",
+      "primaryUse": "Rural Connectivity",
+      "profileUrl": null,
+      "contact": {
+        "discord": null,
+        "email": "mesh@mountains.pr"
+      },
+      "nodes": [
+        {
+          "id": "node-mt-001",
+          "name": "Cerro de Punta Base",
+          "lat": 18.1722,
+          "lon": -66.5919,
+          "altitude": 1300,
+          "deviceType": "morosx-manet",
+          "role": "router",
+          "status": "active",
+          "owner": "Mountain Community"
+        },
+        {
+          "id": "node-mt-002",
+          "name": "Adjuntas Relay",
+          "lat": 18.1639,
+          "lon": -66.7228,
+          "altitude": 550,
+          "deviceType": "custom-router",
+          "role": "router",
+          "status": "active",
+          "owner": "Mountain Community"
+        }
+      ],
+      "coverage": {
+        "estimatedRangeKm": 25,
+        "reliabilityPercent": 75
+      },
+      "profile": {
+        "logoUrl": null,
+        "links": {
+          "github": null,
+          "docs": null,
+          "discord": null
+        },
+        "operatingRegion": "Central Mountain Region",
+        "configSummary": {
+          "defaultModemPreset": "LONG_SLOW",
+          "channelName": "MountainNet",
+          "encryptionEnabled": true,
+          "hopLimit": 5
+        }
+      }
+    },
+    {
+      "id": "pr-ponce-emergency",
+      "name": "Ponce Emergency Mesh",
+      "description": "Emergency response mesh network for the southern region",
+      "prDiv": "PR-PON",
+      "totalNodes": 15,
+      "activeNodes": 15,
+      "status": "active",
+      "established": "2024-03-01",
+      "primaryUse": "EMCOMM",
+      "profileUrl": null,
+      "contact": {
+        "discord": "https://discord.gg/ponce-emergency",
+        "email": "emergency@ponce.pr"
+      },
+      "nodes": [
+        {
+          "id": "node-po-001",
+          "name": "Ponce Centro",
+          "lat": 18.0111,
+          "lon": -66.6140,
+          "altitude": 5,
+          "deviceType": "trekker-copilot",
+          "role": "gateway",
+          "status": "active",
+          "owner": "Emergency Services"
+        }
+      ],
+      "coverage": {
+        "estimatedRangeKm": 12,
+        "reliabilityPercent": 90
+      },
+      "profile": {
+        "logoUrl": null,
+        "links": {
+          "github": null,
+          "docs": null,
+          "discord": "https://discord.gg/ponce-emergency"
+        },
+        "operatingRegion": "Ponce and Southern Region",
+        "configSummary": {
+          "defaultModemPreset": "LONG_MODERATE",
+          "channelName": "PonceEM",
+          "encryptionEnabled": true,
+          "hopLimit": 3
+        }
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "last_updated": "2024-11-18T00:00:00Z"
+}
