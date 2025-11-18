@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: read  # Required to checkout code
+  contents: write  # Required to checkout code
   pages: write    # Required to deploy to GitHub Pages
   id-token: write # Required to verify deployment authenticity
 
