@@ -8,6 +8,9 @@ const THEMES = [
   'hackerman',
   'gamecore',
   'neon-accent',
+  'nord',
+  'solarized-dark',
+  'tokyo-night',
 ] as const;
 
 type Theme = typeof THEMES[number];

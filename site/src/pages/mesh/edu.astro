@@ -1,0 +1,255 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { trainingCategories, getGuidesByCategory } from '../../lib/mesh/meshEduContent';
+---
+
+<Layout title="M3SH-EDU - Training & Learning Hub">
+  <div class="flex h-[calc(100vh-4rem)]">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-base-200 overflow-y-auto border-r border-base-300">
+      <div class="p-4">
+        <h2 class="text-2xl font-bold mb-4">M3SH-EDU</h2>
+        <p class="text-sm opacity-70 mb-6">Training & Learning Hub</p>
+
+        <!-- Search -->
+        <div class="form-control mb-4">
+          <input
+            type="text"
+            id="search-guides"
+            placeholder="Search guides..."
+            class="input input-sm input-bordered"
+          />
+        </div>
+
+        <!-- Categories -->
+        <ul class="menu menu-compact">
+          {trainingCategories.map(category => (
+            <li>
+              <a
+                href={`#${category.id}`}
+                class="category-link"
+                data-category={category.id}
+              >
+                <span class="text-xl">{category.icon}</span>
+                <span>{category.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto">
+      <div class="container mx-auto px-6 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="mb-8">
+          <h1 class="text-4xl font-bold mb-2">Training & Learning Hub</h1>
+          <p class="text-lg opacity-80">
+            Comprehensive guides for mesh networking hardware, software, and operations
+          </p>
+        </div>
+
+        <!-- Search Results (hidden by default) -->
+        <div id="search-results" class="hidden mb-8">
+          <h2 class="text-2xl font-bold mb-4">Search Results</h2>
+          <div id="search-results-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Categories -->
+        {trainingCategories.map(category => {
+          const guides = getGuidesByCategory(category.id);
+          return (
+            <section id={category.id} class="category-section mb-12">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="text-4xl">{category.icon}</span>
+                <div>
+                  <h2 class="text-3xl font-bold">{category.name}</h2>
+                  <p class="text-sm opacity-70">{category.description}</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {guides.map(guide => (
+                  <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-shadow guide-card" data-guide-id={guide.id}>
+                    <div class="card-body p-4">
+                      <h3 class="card-title text-lg">{guide.title}</h3>
+                      <p class="text-sm opacity-80 flex-grow">{guide.description}</p>
+
+                      <div class="flex flex-wrap gap-1 mt-2">
+                        {guide.difficulty && (
+                          <span class={`badge badge-sm ${
+                            guide.difficulty === 'beginner' ? 'badge-success' :
+                            guide.difficulty === 'intermediate' ? 'badge-warning' :
+                            'badge-error'
+                          }`}>
+                            {guide.difficulty}
+                          </span>
+                        )}
+                        {guide.tags?.slice(0, 2).map(tag => (
+                          <span class="badge badge-sm badge-outline">{tag}</span>
+                        ))}
+                      </div>
+
+                      <div class="card-actions justify-end mt-4">
+                        {guide.link ? (
+                          <a
+                            href={guide.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-sm btn-primary"
+                          >
+                            Open Guide
+                          </a>
+                        ) : (
+                          <button class="btn btn-sm btn-outline" disabled>
+                            Coming Soon
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+
+        <!-- Footer Note -->
+        <div class="alert alert-info mt-12">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <h3 class="font-bold">Contributing</h3>
+            <p class="text-sm">
+              Have a guide to share? Contribute to PR-CYBR-MAP on GitHub to help expand this learning hub.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    import { trainingGuides, searchGuides } from '../../lib/mesh/meshEduContent';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-guides') as HTMLInputElement;
+      const searchResults = document.getElementById('search-results');
+      const searchResultsContent = document.getElementById('search-results-content');
+      const categorySections = document.querySelectorAll('.category-section');
+
+      // Search functionality
+      let searchTimeout: NodeJS.Timeout;
+      searchInput?.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        const query = (e.target as HTMLInputElement).value.trim();
+
+        searchTimeout = setTimeout(() => {
+          if (query.length >= 2) {
+            const results = searchGuides(query);
+            displaySearchResults(results);
+          } else {
+            hideSearchResults();
+          }
+        }, 300);
+      });
+
+      function displaySearchResults(results: typeof trainingGuides) {
+        if (!searchResults || !searchResultsContent) return;
+
+        if (results.length === 0) {
+          searchResultsContent.innerHTML = '<p class="text-center opacity-70 col-span-full">No guides found</p>';
+        } else {
+          searchResultsContent.innerHTML = results.map(guide => `
+            <div class="card bg-base-200 shadow-lg">
+              <div class="card-body p-4">
+                <h3 class="card-title text-lg">${guide.title}</h3>
+                <p class="text-sm opacity-80">${guide.description}</p>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  ${guide.difficulty ? `
+                    <span class="badge badge-sm ${
+                      guide.difficulty === 'beginner' ? 'badge-success' :
+                      guide.difficulty === 'intermediate' ? 'badge-warning' :
+                      'badge-error'
+                    }">
+                      ${guide.difficulty}
+                    </span>
+                  ` : ''}
+                  ${guide.tags?.slice(0, 2).map(tag => `
+                    <span class="badge badge-sm badge-outline">${tag}</span>
+                  `).join('') || ''}
+                </div>
+                <div class="card-actions justify-end mt-4">
+                  ${guide.link ? `
+                    <a href="${guide.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                      Open Guide
+                    </a>
+                  ` : `
+                    <button class="btn btn-sm btn-outline" disabled>Coming Soon</button>
+                  `}
+                </div>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        searchResults.classList.remove('hidden');
+        categorySections.forEach(section => section.classList.add('hidden'));
+      }
+
+      function hideSearchResults() {
+        if (!searchResults) return;
+        searchResults.classList.add('hidden');
+        categorySections.forEach(section => section.classList.remove('hidden'));
+      }
+
+      // Category navigation
+      document.querySelectorAll('.category-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const categoryId = link.getAttribute('data-category');
+          const section = document.getElementById(categoryId || '');
+
+          if (section) {
+            // Hide search results
+            hideSearchResults();
+            searchInput.value = '';
+
+            // Scroll to section
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Update active state
+            document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Highlight first category on load
+      document.querySelector('.category-link')?.classList.add('active');
+    });
+  </script>
+
+  <style>
+    .category-link.active {
+      @apply bg-primary text-primary-content;
+    }
+
+    .guide-card {
+      @apply cursor-default;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</Layout>
