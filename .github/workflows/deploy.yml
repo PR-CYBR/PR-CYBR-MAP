@@ -1,37 +1,7 @@
-name: Deploy to GitHub Pages
-
+name: Legacy Deploy to GitHub Pages (disabled)
+# This workflow has been disabled because deployment is handled by pages.yml
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
-permissions:
-  contents: write  # Required to checkout code
-  pages: write    # Required to deploy to GitHub Pages
-  id-token: write # Required to verify deployment authenticity
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      # Step to check out the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Inject secrets for access tokens
-      - name: Inject secrets
-        run: |
-          echo '{
-            "MAPBOX_ACCESS_TOKEN": "${{ secrets.MAPBOX_ACCESS_TOKEN }}",
-            "JAWG_ACCESS_TOKEN": "${{ secrets.JAWG_ACCESS_TOKEN }}"
-          }' > data/config.json
-
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN instead of personal token
-          publish_dir: .
-          publish_branch: pages # Deploy to pages branch instead of gh-pages
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+# No jobs needed; leaving empty ensures GitHub does nothing
+jobs: {}
