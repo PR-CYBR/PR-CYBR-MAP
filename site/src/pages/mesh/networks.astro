@@ -1,0 +1,321 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { loadMeshNetworks, getUniqueDivisions } from '../../lib/mesh/meshConfig';
+
+// Load mesh networks
+const networks = await loadMeshNetworks();
+const divisions = getUniqueDivisions(networks);
+const hasData = networks.length > 0;
+---
+
+<Layout title="M3SH-BROWSER - Community Mesh Networks">
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-2">M3SH-BROWSER</h1>
+      <p class="text-xl opacity-80">Community Mesh Networks in Puerto Rico</p>
+    </div>
+
+    <!-- Info Banner if using example data -->
+    {!hasData && (
+      <div class="alert alert-info mb-6">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>No live network data available yet. Showing example networks.</span>
+      </div>
+    )}
+
+    <!-- Filters -->
+    <div class="card bg-base-200 shadow-xl mb-6">
+      <div class="card-body p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Text Search -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Search Networks</span>
+            </label>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search by name or description..."
+              class="input input-bordered"
+            />
+          </div>
+
+          <!-- Division Filter -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Filter by PR Division</span>
+            </label>
+            <select id="division-filter" class="select select-bordered">
+              <option value="all">All Divisions</option>
+              {divisions.map(div => (
+                <option value={div}>{div}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Networks Table -->
+    <div class="card bg-base-200 shadow-xl">
+      <div class="card-body p-0">
+        <div class="overflow-x-auto">
+          <table class="table table-zebra">
+            <thead>
+              <tr>
+                <th>M3SH Name</th>
+                <th>PR-DIV</th>
+                <th>Nodes</th>
+                <th>Active</th>
+                <th>Primary Use</th>
+                <th>Description</th>
+                <th>Profile</th>
+              </tr>
+            </thead>
+            <tbody id="networks-table-body">
+              {networks.map(network => (
+                <tr
+                  class="network-row cursor-pointer hover:bg-base-300 transition-colors"
+                  data-network-id={network.id}
+                  data-network-div={network.prDiv}
+                  data-network-name={network.name.toLowerCase()}
+                  data-network-desc={network.description.toLowerCase()}
+                >
+                  <td>
+                    <div class="font-bold">{network.name}</div>
+                    <div class="text-xs opacity-70">
+                      {network.status === 'active' && (
+                        <span class="badge badge-success badge-xs">Active</span>
+                      )}
+                      {network.status === 'inactive' && (
+                        <span class="badge badge-error badge-xs">Inactive</span>
+                      )}
+                      {network.status === 'planning' && (
+                        <span class="badge badge-warning badge-xs">Planning</span>
+                      )}
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge badge-primary">{network.prDiv}</span>
+                  </td>
+                  <td>{network.totalNodes}</td>
+                  <td>{network.activeNodes}</td>
+                  <td>
+                    <span class="badge badge-outline badge-sm">{network.primaryUse || 'General'}</span>
+                  </td>
+                  <td class="max-w-xs truncate">{network.description}</td>
+                  <td>
+                    {network.profileUrl ? (
+                      <a
+                        href={network.profileUrl}
+                        class="link link-primary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="event.stopPropagation()"
+                      >
+                        View Profile
+                      </a>
+                    ) : (
+                      <button
+                        class="btn btn-xs btn-ghost view-profile-btn"
+                        data-network-id={network.id}
+                      >
+                        Details
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {networks.length === 0 && (
+          <div class="text-center py-12 opacity-70">
+            <p class="text-lg">No mesh networks found</p>
+            <p class="text-sm mt-2">Check back later for community mesh networks</p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <!-- Network Detail Modal -->
+    <div id="network-modal" class="modal">
+      <div class="modal-box max-w-3xl">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <h3 id="modal-network-name" class="font-bold text-2xl"></h3>
+            <p id="modal-network-div" class="text-sm opacity-70"></p>
+          </div>
+          <button class="btn btn-sm btn-circle btn-ghost" onclick="document.getElementById('network-modal').classList.remove('modal-open')">
+            ✕
+          </button>
+        </div>
+
+        <div id="modal-network-content" class="space-y-4">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Client-side filtering
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const divisionFilter = document.getElementById('division-filter');
+      const rows = document.querySelectorAll('.network-row');
+
+      function filterRows() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedDiv = divisionFilter.value;
+
+        rows.forEach(row => {
+          const name = row.dataset.networkName || '';
+          const desc = row.dataset.networkDesc || '';
+          const div = row.dataset.networkDiv || '';
+
+          const matchesSearch = !searchTerm ||
+            name.includes(searchTerm) ||
+            desc.includes(searchTerm);
+
+          const matchesDiv = selectedDiv === 'all' || div === selectedDiv;
+
+          if (matchesSearch && matchesDiv) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      }
+
+      searchInput?.addEventListener('input', filterRows);
+      divisionFilter?.addEventListener('change', filterRows);
+
+      // Handle row clicks to show detail modal
+      rows.forEach(row => {
+        row.addEventListener('click', async (e) => {
+          const networkId = row.dataset.networkId;
+
+          // Fetch network data
+          try {
+            const response = await fetch('/PR-CYBR-MAP/data/mesh/mesh_networks.example.json');
+            const data = await response.json();
+            const network = data.networks.find(n => n.id === networkId);
+
+            if (network) {
+              showNetworkModal(network);
+            }
+          } catch (error) {
+            console.error('Error loading network details:', error);
+          }
+        });
+      });
+
+      function showNetworkModal(network) {
+        const modal = document.getElementById('network-modal');
+        const nameEl = document.getElementById('modal-network-name');
+        const divEl = document.getElementById('modal-network-div');
+        const contentEl = document.getElementById('modal-network-content');
+
+        if (nameEl) nameEl.textContent = network.name;
+        if (divEl) divEl.textContent = `${network.prDiv} • ${network.primaryUse || 'General'}`;
+
+        if (contentEl) {
+          contentEl.innerHTML = `
+            <div class="grid grid-cols-2 gap-4">
+              <div class="stat bg-base-300 rounded-lg p-4">
+                <div class="stat-title">Total Nodes</div>
+                <div class="stat-value text-2xl">${network.totalNodes}</div>
+              </div>
+              <div class="stat bg-base-300 rounded-lg p-4">
+                <div class="stat-title">Active Nodes</div>
+                <div class="stat-value text-2xl">${network.activeNodes}</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">Description</h4>
+              <p class="opacity-80">${network.description}</p>
+            </div>
+
+            ${network.coverage ? `
+              <div>
+                <h4 class="font-semibold mb-2">Coverage</h4>
+                <div class="space-y-1 text-sm">
+                  <p>Estimated Range: ${network.coverage.estimatedRangeKm} km</p>
+                  <p>Reliability: ${network.coverage.reliabilityPercent}%</p>
+                </div>
+              </div>
+            ` : ''}
+
+            ${network.contact ? `
+              <div>
+                <h4 class="font-semibold mb-2">Contact</h4>
+                <div class="flex gap-2">
+                  ${network.contact.discord ? `
+                    <a href="${network.contact.discord}" target="_blank" class="btn btn-sm btn-outline">
+                      Discord
+                    </a>
+                  ` : ''}
+                  ${network.contact.email ? `
+                    <a href="mailto:${network.contact.email}" class="btn btn-sm btn-outline">
+                      Email
+                    </a>
+                  ` : ''}
+                </div>
+              </div>
+            ` : ''}
+
+            ${network.profile?.links ? `
+              <div>
+                <h4 class="font-semibold mb-2">Links</h4>
+                <div class="flex gap-2 flex-wrap">
+                  ${network.profile.links.github ? `
+                    <a href="${network.profile.links.github}" target="_blank" class="btn btn-sm btn-outline">
+                      GitHub
+                    </a>
+                  ` : ''}
+                  ${network.profile.links.docs ? `
+                    <a href="${network.profile.links.docs}" target="_blank" class="btn btn-sm btn-outline">
+                      Documentation
+                    </a>
+                  ` : ''}
+                </div>
+              </div>
+            ` : ''}
+
+            ${network.profile?.configSummary ? `
+              <div>
+                <h4 class="font-semibold mb-2">Configuration</h4>
+                <div class="space-y-1 text-sm bg-base-300 p-3 rounded">
+                  <p><strong>Modem Preset:</strong> ${network.profile.configSummary.defaultModemPreset || 'N/A'}</p>
+                  <p><strong>Channel:</strong> ${network.profile.configSummary.channelName || 'N/A'}</p>
+                  <p><strong>Encryption:</strong> ${network.profile.configSummary.encryptionEnabled ? 'Enabled' : 'Disabled'}</p>
+                  <p><strong>Hop Limit:</strong> ${network.profile.configSummary.hopLimit || 'N/A'}</p>
+                </div>
+              </div>
+            ` : ''}
+
+            ${network.established ? `
+              <div class="text-sm opacity-70">
+                <p>Established: ${new Date(network.established).toLocaleDateString()}</p>
+              </div>
+            ` : ''}
+          `;
+        }
+
+        modal?.classList.add('modal-open');
+      }
+    });
+  </script>
+
+  <style>
+    .modal-open {
+      display: grid;
+    }
+  </style>
+</Layout>
