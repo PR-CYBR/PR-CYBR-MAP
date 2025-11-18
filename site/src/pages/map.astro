@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MeshBuilderPanel from '../components/MeshBuilderPanel';
 ---
 
 <Layout title="Live Map">
@@ -42,8 +43,17 @@ import Layout from '../layouts/Layout.astro';
           <button id="route-to-shelter" class="btn btn-sm btn-primary w-full">
             Find Nearest Shelter
           </button>
+          <div class="divider my-1"></div>
+          <button id="toggle-mesh-builder" class="btn btn-sm btn-accent w-full">
+            Toggle Mesh Builder
+          </button>
         </div>
       </div>
+    </div>
+
+    <!-- Mesh Builder Panel -->
+    <div id="mesh-builder-panel" class="fixed top-20 left-[22rem] z-[1000] hidden">
+      <div id="mesh-builder-root"></div>
     </div>
 
     <!-- Sidebar for ASCOPE reports -->
@@ -177,6 +187,68 @@ import Layout from '../layouts/Layout.astro';
           sitrepEl.innerHTML = '<div class="opacity-70">No new situation reports</div>';
         }
       }, 2000);
+      
+      // Mesh Builder integration
+      let meshLayers = null;
+      let meshBuilderVisible = false;
+      
+      // Toggle mesh builder panel
+      document.getElementById('toggle-mesh-builder')?.addEventListener('click', () => {
+        const panel = document.getElementById('mesh-builder-panel');
+        if (panel) {
+          meshBuilderVisible = !meshBuilderVisible;
+          if (meshBuilderVisible) {
+            panel.classList.remove('hidden');
+            // Initialize mesh layers if not already done
+            if (!meshLayers && window.L) {
+              try {
+                // Dynamically import and initialize mesh layers
+                import('/PR-CYBR-MAP/_astro/hoisted.BdpDw26L.js').then(() => {
+                  console.log('Mesh layers would be initialized here');
+                  // TODO: Initialize MeshMapLayers when fully integrated
+                }).catch(() => {
+                  console.log('Mesh integration pending');
+                });
+              } catch (e) {
+                console.log('Mesh layers initialization deferred');
+              }
+            }
+          } else {
+            panel.classList.add('hidden');
+          }
+        }
+      });
+    });
+  </script>
+  
+  <!-- Mesh Builder React Component Integration -->
+  <script>
+    // This will be enhanced later to properly mount the React component
+    // For now, we show a placeholder
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.getElementById('mesh-builder-root');
+      if (root) {
+        root.innerHTML = `
+          <div class="card bg-base-200 shadow-xl w-80">
+            <div class="card-body p-4">
+              <h3 class="card-title text-lg">M3SH Builder</h3>
+              <p class="text-sm opacity-70">Mesh network builder coming soon...</p>
+              <div class="space-y-2 mt-4">
+                <div class="alert alert-info p-2 text-xs">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Click map to place nodes. Right-click to remove.</span>
+                </div>
+                <button class="btn btn-sm btn-outline w-full" disabled>Place Node</button>
+                <button class="btn btn-sm btn-outline w-full" disabled>Draw Links</button>
+                <button class="btn btn-sm btn-primary w-full" disabled>Deploy-M3SH</button>
+                <button class="btn btn-sm btn-outline w-full" disabled>Compute LOS</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
     });
   </script>
 </Layout>
