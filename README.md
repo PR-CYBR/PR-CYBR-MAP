@@ -34,6 +34,8 @@ Visit the live site: [PR-CYBR Map](https://pr-cybr.github.io/PR-CYBR-MAP/)
 The site is a multi-page Astro application with the following sections:
 - **Home**: Project overview and quick links
 - **Map**: Interactive Leaflet map with emergency data layers
+- **Mesh Networks**: Community mesh network browser (M3SH-BROWSER)
+- **Training Hub**: Mesh networking training and learning resources (M3SH-EDU)
 - **Statistics**: Repository metrics and activity charts
 - **Discussions**: Community conversations from GitHub Discussions
 - **Development Board**: Project tasks and progress tracking
@@ -46,10 +48,11 @@ The site is a multi-page Astro application with the following sections:
 ### Multi-Page Astro Site
 The project has been migrated to a modern Astro-based site located in the `site/` directory:
 - **Framework**: Astro + React + TailwindCSS + daisyUI
-- **Themes**: 7 user-selectable dark themes with localStorage persistence
+- **Themes**: 10 user-selectable dark themes with localStorage persistence
 - **Data Snapshots**: GitHub API data cached as JSON during build
 - **Map Assets**: Legacy CSS/JS copied to build for backward compatibility
 - **Automated Data**: CI workflow syncs emergency data and builds site
+- **Mesh Tools**: M3SH suite for Meshtastic mesh network planning and deployment
 
 ### Data Flow
 1. **Emergency Data** (`data/cache/`): Updated by `.github/workflows/update-data.yml` every 30 minutes
@@ -70,6 +73,7 @@ The control panel in the top-left provides quick access to:
 - Refresh Hurricane data
 - Refresh Weather Alerts
 - Route to nearest shelter from any address
+- **Toggle Mesh Builder** (M3SH-BLDR)
 
 ### Dashboard Widgets
 Two widgets in the bottom-right provide live updates:
@@ -81,6 +85,55 @@ Two widgets in the bottom-right provide live updates:
 - Click "See More" in popups for detailed information
 - Use shelter popups to get directions to emergency locations
 - View real-time weather and hurricane data overlays
+
+## M3SH Mesh Network Tools
+
+PR-CYBR-MAP includes the **M3SH** (mesh-network) suite for planning and deploying Meshtastic mesh networks:
+
+### M3SH-BLDR - Virtual Mesh Builder
+- **Interactive network builder** directly on the map
+- Place nodes, draw links, configure devices
+- **Deploy-M3SH analysis** provides:
+  - Network reliability scoring
+  - Coverage estimation
+  - Isolation and over-range detection
+  - Per-node configuration recommendations
+- Environment-aware analysis (urban/suburban/rural/open)
+- 10+ device templates (Spec5, RAKWireless, LILYGO, MorosX, etc.)
+
+### M3SH-L0S - Line-of-Sight Helper
+- Calculate distance between nodes
+- LOS probability estimation
+- Suggests relay/uplink positions for extended range
+- Visual markers on map for suggested uplink locations
+
+### M3SH-BROWSER - Community Network Browser
+- Browse all known Puerto Rico mesh networks
+- Filter by PR division and search by name
+- View network profiles with:
+  - Node counts and status
+  - Coverage and reliability metrics
+  - Configuration summaries
+  - Contact information
+
+### M3SH-EDU - Training Hub
+- **50+ training guides** across 5 categories:
+  - Hardware setup (devices and radios)
+  - Software configuration (apps and tools)
+  - Network concepts (protocols and routing)
+  - System administration (OS configs)
+  - Platform guides (collaboration tools)
+- Searchable guide library
+- Difficulty levels and tags
+- External documentation links
+
+### Design Notes
+The M3SH tools use **heuristic analysis** for deployment planning. The architecture is designed to support future integration with:
+- **Meshtastic Site Planner** for RF coverage analysis
+- **Meshtastic Simulator** for throughput modeling
+- **SPLAT!** for terrain-aware RF propagation
+
+All analysis interfaces are designed as drop-in replacements that won't require UI changes.
 
 ## Development
 
